@@ -1,7 +1,7 @@
 accessible: true
 author: Olivier Bonaventure
-context: 'These questions are related to the iBGP section of the first edition of
-    the `Computer Networking: Principles, Protocols and Practice <http://cnp3book.info.ucl.ac.be/1st/html/network/network.html#the-border-gateway-protocol>`_
+context: 'These questions assume that you have read the iBGP section of the first
+    edition of the `Computer Networking: Principles, Protocols and Practice <http://cnp3book.info.ucl.ac.be/1st/html/network/network.html#the-border-gateway-protocol>`_
     ebook. '
 environment: mcq
 evaluate: best
@@ -50,22 +50,34 @@ problems:
     q0c:
         choices:
         -   valid: true
-            text: 4. Prefer routes having the smallest MED 5. Prefer routes learned
-                via eBGP sessions over routes learned via iBGP sessions 6. Prefer
-                routes having the closest next-hop 7. Tie breaking rules prefer routes
-                learned from the router with lowest router id
-        -   text: 4. Prefer routes learned via eBGP sessions over routes learned via
-                iBGP sessions 5. Prefer routes having the smallest MED 6. Prefer routes
-                having the closest next-hop 7. Tie breaking rules prefer routes learned
-                from the router with lowest router id
-        -   text: 4. Prefer routes learned via eBGP sessions over routes learned via
-                iBGP sessions 5. Prefer routes having the closest next-hop 6. Prefer
-                routes having the smallest MED 7. Tie breaking rules prefer routes
-                learned from the router with lowest router id
-        -   text: 4. Prefer routes having the closest next-hop 5. Prefer routes learned
-                via eBGP sessions over routes learned via iBGP sessions 6. Prefer
-                routes having the smallest MED 7. Tie breaking rules prefer routes
-                learned from the router with lowest router id
+            text: |
+                .. code::
+
+                   4. Prefer routes having the smallest MED
+                   5. Prefer routes learned via eBGP sessions over routes learned via iBGP sessions
+                   6. Prefer routes having the closest next-hop
+                   7. Tie breaking rules prefer routes learned from the router with lowest router id
+        -   text: |-
+                .. code::
+
+                   4. Prefer routes learned via eBGP sessions over routes learned via iBGP sessions
+                   5. Prefer routes having the smallest MED
+                   6. Prefer routes having the closest next-hop
+                   7. Tie breaking rules prefer routes learned from the router with lowest router id
+        -   text: |
+                .. code::
+
+                   4. Prefer routes learned via eBGP sessions over routes learned via iBGP sessions
+                   5. Prefer routes having the closest next-hop
+                   6. Prefer routes having the smallest MED
+                   7. Tie breaking rules prefer routes learned from the router with lowest router id
+        -   text: |
+                .. code::
+
+                   4. Prefer routes having the closest next-hop
+                   5. Prefer routes learned via eBGP sessions over routes learned via iBGP sessions
+                   6. Prefer routes having the smallest MED
+                   7. Tie breaking rules prefer routes learned from the router with lowest router id
         name: BGP Decision process
         header: |-
             The BGP Decision Process starts with the following rules
