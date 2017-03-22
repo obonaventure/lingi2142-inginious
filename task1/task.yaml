@@ -90,7 +90,7 @@ problems:
                              
                 What are the next rules of the BGP decision process ?
         
-    q0b:
+    q0d:
         choices:
         -   text: The AS-Path
             valid: false 
