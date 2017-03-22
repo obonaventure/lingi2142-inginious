@@ -115,7 +115,7 @@ problems:
         choices:
         -   text: :math:`\frac{k \times (k-1)}{2}`
             valid: true 
-        -   text: `k`
+        -   text: :math:`k`
             valid: false
         -   text: :math:`\frac{k}{2}` 
             valid: false
