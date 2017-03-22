@@ -82,7 +82,7 @@ problems:
         error_message: Read again the description of the BGP Decision process in this chapter of the first edition of the ebook. 
         success_message: Correct
         name: BGP Decision process
-        header: The BGP Decision Process starts with the following rules :
+        header: The BGP Decision Process starts with the following rules 
 
                  1. Ignore routes having an unreachable BGP nexthop
                  2. Prefer routes having the highest local-pref
