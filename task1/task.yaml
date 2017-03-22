@@ -1,132 +1,119 @@
 accessible: true
 author: Olivier Bonaventure
-context: |-
-    These questions are related to the iBGP section of the first edition of the `Computer Networking: Principles, Protocols and Practice <http://cnp3book.info.ucl.ac.be/1st/html/network/network.html#the-border-gateway-protocol>`_ ebook. 
-
+context: 'These questions are related to the iBGP section of the first edition of
+    the `Computer Networking: Principles, Protocols and Practice <http://cnp3book.info.ucl.ac.be/1st/html/network/network.html#the-border-gateway-protocol>`_
+    ebook. '
 environment: mcq
 evaluate: best
 groups: false
 limits:
+    memory: '100'
     time: '30'
     output: '2'
-    memory: '100'
 name: iBGP
 network_grading: false
 order: 6
 problems:
-        
-
     q0:
+        success_message: Correct
+        type: multiple-choice
         choices:
         -   text: Ignore routes having an unreachable BGP nexthop
-            valid: true 
+            valid: true
         -   text: Prefer routes having the highest local-pref
-            valid: false
-        -   text: Prefer routes having the shortest AS-Path 
-            valid: false
-        -   text: Prefer routes having the smallest MED 
-            valid: false
-        -   text: Prefer routes learned via eBGP sessions over routes learned via iBGP sessions
-            valid: false
-        type: multiple-choice
+        -   text: Prefer routes having the shortest AS-Path
+        -   text: Prefer routes having the smallest MED
+        -   text: Prefer routes learned via eBGP sessions over routes learned via
+                iBGP sessions
+        error_message: Read again the description of the BGP Decision process in this
+            chapter of the first edition of the ebook.
+        header: What is the first rule of the BGP decision process ?
         limit: 0
-        error_message: Read again the description of the BGP Decision process in this chapter of the first edition of the ebook. 
-        success_message: Correct
         name: BGP Decision process
-        header: What is the first rule of the BGP decision process ? 
-
     q0b:
         choices:
         -   text: Ignore routes having an unreachable BGP nexthop
-            valid: false 
         -   text: Prefer routes having the highest local-pref
-            valid: false
-        -   text: Prefer routes having the shortest AS-Path 
-            valid: false
-        -   text: Prefer routes having the smallest MED 
-            valid: false
-        -   text: Prefer routes learned via eBGP sessions over routes learned via iBGP sessions
+        -   text: Prefer routes having the shortest AS-Path
+        -   text: Prefer routes having the smallest MED
+        -   text: Prefer routes learned via eBGP sessions over routes learned via
+                iBGP sessions
             valid: true
+        header: In the list above, which rule of the BGP Decision process corresponds
+            to hot potato routing ?
         type: multiple-choice
-        limit: 0
-        error_message: Read again the description of the BGP Decision process in this chapter of the first edition of the ebook. 
         success_message: Correct
+        limit: 0
+        error_message: Read again the description of the BGP Decision process in this
+            chapter of the first edition of the ebook.
         name: Hot potato routing
-        header: In the list above, which rule of the BGP Decision process corresponds to hot potato routing ? 
-
-
     q0c:
         choices:
-        -   text: 4. Prefer routes having the smallest MED
-                  5. Prefer routes learned via eBGP sessions over routes learned via iBGP sessions
-                  6. Prefer routes having the closest next-hop
-                  7. Tie breaking rules prefer routes learned from the router with lowest router id
-            valid: true 
-        -   text: 4. Prefer routes learned via eBGP sessions over routes learned via iBGP sessions
-                  5. Prefer routes having the smallest MED
-                  6. Prefer routes having the closest next-hop
-                  7. Tie breaking rules prefer routes learned from the router with lowest router id
-            valid: false
-        -   text: 4. Prefer routes learned via eBGP sessions over routes learned via iBGP sessions
-                  5. Prefer routes having the closest next-hop
-                  6. Prefer routes having the smallest MED
-                  7. Tie breaking rules prefer routes learned from the router with lowest router id
-            valid: false 
-        -   text: 4. Prefer routes having the closest next-hop
-                  5. Prefer routes learned via eBGP sessions over routes learned via iBGP sessions
-                  6. Prefer routes having the smallest MED
-                  7. Tie breaking rules prefer routes learned from the router with lowest router id
-            valid: false
-        type: multiple-choice
-        limit: 0
-        error_message: Read again the description of the BGP Decision process in this chapter of the first edition of the ebook. 
-        success_message: Correct
+        -   valid: true
+            text: 4. Prefer routes having the smallest MED 5. Prefer routes learned
+                via eBGP sessions over routes learned via iBGP sessions 6. Prefer
+                routes having the closest next-hop 7. Tie breaking rules prefer routes
+                learned from the router with lowest router id
+        -   text: 4. Prefer routes learned via eBGP sessions over routes learned via
+                iBGP sessions 5. Prefer routes having the smallest MED 6. Prefer routes
+                having the closest next-hop 7. Tie breaking rules prefer routes learned
+                from the router with lowest router id
+        -   text: 4. Prefer routes learned via eBGP sessions over routes learned via
+                iBGP sessions 5. Prefer routes having the closest next-hop 6. Prefer
+                routes having the smallest MED 7. Tie breaking rules prefer routes
+                learned from the router with lowest router id
+        -   text: 4. Prefer routes having the closest next-hop 5. Prefer routes learned
+                via eBGP sessions over routes learned via iBGP sessions 6. Prefer
+                routes having the smallest MED 7. Tie breaking rules prefer routes
+                learned from the router with lowest router id
         name: BGP Decision process
-        header: The BGP Decision Process starts with the following rules 
+        header: |-
+            The BGP Decision Process starts with the following rules
 
-                 1. Ignore routes having an unreachable BGP nexthop
-                 2. Prefer routes having the highest local-pref
-                 3. Prefer routes having the shortest AS-Path
-                             
-                What are the next rules of the BGP decision process ?
-        
+            .. code:: console
+
+               1. Ignore routes having an unreachable BGP nexthop
+               2. Prefer routes having the highest local-pref
+               3. Prefer routes having the shortest AS-Path
+
+            What are the next rules of the BGP decision process ?
+        success_message: Correct
+        limit: 0
+        type: multiple-choice
+        error_message: Read again the description of the BGP Decision process in this
+            chapter of the first edition of the ebook.
     q0d:
         choices:
         -   text: The AS-Path
-            valid: false 
-        -   text: The Multi-Exit Discriminator (MED) 
+        -   text: The Multi-Exit Discriminator (MED)
             valid: true
         -   text: The local-preference
-            valid: false
         -   text: The BGP Communities
-            valid: false
-        -   text: The BGP Nexthop 
-            valid: false
+        -   text: The BGP Nexthop
         type: multiple-choice
-        limit: 0
-        error_message: Read again the description of the BGP Decision process in this chapter of the first edition of the ebook. 
-        success_message: Correct
         name: Cold potato routing
-        header: Cold potato routing relies on the utilisation of a specific BGP attribute. Which one ?
-        
-
-        
+        limit: 0
+        error_message: Read again the description of the BGP Decision process in this
+            chapter of the first edition of the ebook.
+        header: Cold potato routing relies on the utilisation of a specific BGP attribute.
+            Which one ?
+        success_message: Correct
     q1:
+        header: Consider a transit network that is composed of `k` different transit
+            routers. What many iBGP sessions do you need to create inside this network  ?
         choices:
         -   text: :math:`\frac{k \times (k-1)}{2}`
-            valid: true 
+            valid: true
         -   text: :math:`k`
-            valid: false
-        -   text: :math:`\frac{k}{2}` 
-            valid: false
-        -   text: :math:`k \times (k-1)` 
-            valid: false
-        type: multiple-choice
-        limit: 0
-        error_message: Read again this sentence extracted from the section that you have read - `In practice, each BGP router inside a domain maintains an iBGP session with every other BGP router in the domain [35]`
-        success_message: Correct
+        -   text: :math:`\frac{k}{2}`
+        -   text: :math:`k \times (k-1)`
         name: Number of iBGP sessions
-        header: Consider a transit network that is composed of `k` different transit routers. What many iBGP sessions do you need to create inside this network  ? 
+        error_message: Read again this sentence extracted from the section that you
+            have read - `In practice, each BGP router inside a domain maintains an
+            iBGP session with every other BGP router in the domain [35]`
+        limit: 0
+        success_message: Correct
+        type: multiple-choice
 stored_submissions: 0
 submission_limit:
     amount: 3
