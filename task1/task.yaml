@@ -39,11 +39,14 @@ problems:
         -   text: Prefer routes learned via eBGP sessions over routes learned via
                 iBGP sessions
             valid: true
-        header: In the list above, which rule of the BGP Decision process corresponds
-            to hot potato routing ?
+        -   valid: true
+            text: Prefer routes having the closest next-hop
+        header: In the list below, which rules of the BGP Decision process corresponds
+            to `hot potato routing` ?
         type: multiple-choice
         success_message: Correct
         limit: 0
+        multiple: true
         error_message: Read again the description of the BGP Decision process in this
             chapter of the first edition of the ebook.
         name: Hot potato routing
@@ -104,11 +107,11 @@ problems:
         -   text: The BGP Nexthop
         type: multiple-choice
         name: Cold potato routing
+        header: Cold potato routing relies on the utilisation of a specific BGP attribute.
+            Which one ?
         limit: 0
         error_message: Read again the description of the BGP Decision process in this
             chapter of the first edition of the ebook.
-        header: Cold potato routing relies on the utilisation of a specific BGP attribute.
-            Which one ?
         success_message: Correct
     q1:
         header: Consider a transit network that is composed of `k` different transit
