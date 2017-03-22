@@ -123,7 +123,7 @@ problems:
             valid: false
         type: multiple-choice
         limit: 0
-        error_message: Read again this sentence extracted from the section that you have read: `In practice, each BGP router inside a domain maintains an iBGP session with every other BGP router in the domain [35]`
+        error_message: Read again this sentence extracted from the section that you have read\: `In practice, each BGP router inside a domain maintains an iBGP session with every other BGP router in the domain [35]`
         success_message: Correct
         name: Number of iBGP sessions
         header: Consider a transit network that is composed of `k` different transit routers. What many iBGP sessions do you need to create inside this network  ? 
