@@ -1,0 +1,148 @@
+accessible: true
+author: Olivier Bonaventure
+context: |-
+    These questions assume that you have read the following article :
+
+     J. Park et al, “BGP Route Reflection Revisited”, IEEE Communications Magazine, June 2012, `http://irl.cs.ucla.edu/~j13park/rr-commag.pdf<http://irl.cs.ucla.edu/~j13park/rr-commag.pdf>`_
+environment: php
+evaluate: best
+groups: false
+limits:
+    memory: '100'
+    output: '2'
+    time: '30'
+name: BGP Route Reflection
+network_grading: false
+problems:
+    q1:
+        choices:
+        -   text: local-pref
+        -   text: AS-Path
+        -   text: Multi-Exit Discriminator (MED)
+        -   valid: true
+            text: CLUSTER_LIST
+        -   valid: true
+            text: ORIGINATOR_ID
+        header: 'Which of the BGP attributes are *only* used when there are BGP Route
+            Reflectors inside a network ? '
+        name: BGP Attributes
+        limit: 4
+        error_message: Please read again the section entitled `Basic Operation of
+            Route Reflection`
+        type: multiple-choice
+        multiple: true
+    q2:
+        choices:
+        -   text: |
+                .. code::
+
+                   R1's RIB
+                    *p via RX AS2:AS4
+                     p via RY AS3:AS4
+
+                   RR's RIB
+                    *p via RX AS2:AS4
+                     p via RY AS3:AS4
+
+                   R2's RIB
+                     p via RX AS2:AS4
+                    *p via RY AS3:AS4
+            feedback: Remember that over an iBGP session, a BGP Route Reflectore only
+                advertises its best BGP route. This implies that ``R1`` cannot learn
+                the ``Ry`` route
+        -   text: |
+                .. code::
+
+                   R1's RIB
+                    *p via RX AS2:AS4
+
+                   RR's RIB
+                    *p via RX AS2:AS4
+                     p via RY AS3:AS4
+
+                   R2's RIB
+                     p via RX AS2:AS4
+                    *p via RY AS3:AS4
+            feedback: Remember that over an iBGP session, a BGP Route Reflectore only
+                advertises its best BGP route. This implies that ``R1`` cannot learn
+                the ``Ry`` route
+        -   text: |+
+                .. code::
+
+                   R1's RIB
+                    *p via RX AS2:AS4
+
+                   RR's RIB
+                    *p via RX AS2:AS4
+                     p via RY AS3:AS4
+
+                   R2's RIB
+                    *p via RY AS3:AS4
+
+            feedback: '``R2`` will learn the route via ``RY`` through the route reflector.'
+        -   valid: true
+            text: |
+                .. code::
+
+                   R1's RIB
+                    *p via RX AS2:AS4
+
+                   RR's RIB
+                    *p via RX AS2:AS4
+                     p via RY AS3:AS4
+
+                   R2's RIB
+                    *p via RX AS3:AS4
+                     p via RX AS2:AS4
+        -   text: |-
+                .. code::
+
+                   R1's RIB
+                    *p via RX AS2:AS4
+
+                   RR's RIB
+                     p via RX AS2:AS4
+                    *p via RY AS3:AS4
+
+                   R2's RIB
+                     p via RY AS3:AS4
+                    *p via RX AS2:AS4
+            feedback: '``RR`` will prefer the route via ``RX`` because it has the
+                lowest cost.'
+        -   text: |-
+                .. code::
+
+                   R1's RIB
+                    *p via RX AS2:AS4
+                    p via RY AS3:AS4
+
+                   RR's RIB
+                     p via RX AS2:AS4
+                    *p via RY AS3:AS4
+
+                   R2's RIB
+                     p via RX AS3:AS4
+                    *p via RX AS2:AS4
+        name: Basics of BGP Route Reflection
+        type: multiple-choice
+        header: |-
+            Consider the simple network shown in the ASCII figure below.
+
+            .. code::
+
+                   +                  +
+               Rx -+- R1 --- RR --- R2 -+- Ry
+                   +                  +
+
+
+            In this network, ``R1``, ``RR`` and ``R2`` belong to ``AS1``. ``R1`` and ``R2`` are clients of the Route Reflector ``RR``. ``Rx`` belongs to ``AS2`` and ``Ry`` to ``AS3``. These two ASes are connected to ``AS4`` that advertises prefix `p`. This implies that :
+
+            - ``Rx`` advertises prefix `p` with `AS-Path:`AS2:AS4` to ``R1``
+            - ``Ry`` advertises prefix `p` with `AS-Path:`AS3:AS4` to ``R2``
+
+            If link ``R1-RR`` has a cost of `1` and link ``RR-R2`` a cost of 2, what are the BGP routes known by these three routers ? (routes marked with * are the best ones)
+stored_submissions: 0
+submission_limit:
+    amount: -1
+    period: -1
+weight: 1.0
