@@ -3,7 +3,7 @@ author: Olivier Bonaventure
 context: |-
     These questions assume that you have read the following article :
 
-    J. Park et al, `BGP Route Reflection Revisited <http://irl.cs.ucla.edu/~j13park/rr-commag.pdf>`_, IEEE Communications Magazine, June 2012, ``http://irl.cs.ucla.edu/~j13park/rr-commag.pdf``
+    Jong Han Park et al, `BGP Route Reflection Revisited <http://irl.cs.ucla.edu/~j13park/rr-commag.pdf>`_, IEEE Communications Magazine, June 2012, ``http://irl.cs.ucla.edu/~j13park/rr-commag.pdf``
 environment: php
 evaluate: best
 groups: false
@@ -15,6 +15,8 @@ name: BGP Route Reflection
 network_grading: false
 problems:
     q1:
+        header: 'Which of the BGP attributes are *only* used when there are BGP Route
+            Reflectors inside a network ? '
         choices:
         -   text: local-pref
         -   text: AS-Path
@@ -24,11 +26,9 @@ problems:
         -   valid: true
             text: ORIGINATOR_ID
         name: BGP Attributes
-        limit: 4
         error_message: Please read again the section entitled `Basic Operation of
             Route Reflection`
-        header: 'Which of the BGP attributes are *only* used when there are BGP Route
-            Reflectors inside a network ? '
+        limit: 4
         type: multiple-choice
         multiple: true
     q2:
@@ -125,6 +125,7 @@ problems:
                     *p via RX AS2:AS4
         name: Basics of BGP Route Reflection
         limit: 0
+        type: multiple-choice
         header: |-
             Consider the simple network shown in the ASCII figure below.
 
@@ -141,7 +142,6 @@ problems:
             - ``Ry`` advertises prefix `p` with `AS-Path:`AS3:AS4` to ``R2``
 
             If link ``R1-RR`` has a cost of `1` and link ``RR-R2`` a cost of 2, what are the BGP routes known by these three routers ? (routes marked with * are the best ones)
-        type: multiple-choice
     q3:
         name: Basics of BGP Route Reflection
         choices:
@@ -209,8 +209,8 @@ problems:
 
                    Ry's RIB
                     *p via Rx AS1:AS3:AS4
-        limit: 0
         type: multiple-choice
+        limit: 0
         header: |-
             Consider the simple network shown in the ASCII drawing below.
 
@@ -227,8 +227,8 @@ problems:
     rr-ibgp:
         type: multiple-choice
         choices:
-        -   text: '5'
-            valid: true
+        -   valid: true
+            text: '5'
         -   feedback: Each router must maintain an iBGP session with a route reflector.
             text: '3'
         -   text: '4'
@@ -250,6 +250,42 @@ problems:
 
 
             All these routers belong to the same AS. If one of them is a Route Reflector, how many iBGP sessions do you need to create ?
+    rr-ibgp2:
+        choices:
+        -   valid: true
+            text: '9'
+        -   text: '8'
+            feedback: 'The two route reflectors have one iBGP session between themselves
+                and then each client router has one iBGP session with each route reflector. '
+        -   feedback: 'The two route reflectors have one iBGP session between themselves
+                and then each client router has one iBGP session with each route reflector. '
+            text: '10'
+        -   feedback: 'The two route reflectors have one iBGP session between themselves
+                and then each client router has one iBGP session with each route reflector. '
+            text: '7'
+        -   text: '15'
+            feedback: 'The two route reflectors have one iBGP session between themselves
+                and then each client router has one iBGP session with each route reflector. '
+        -   feedback: 'The two route reflectors have one iBGP session between themselves
+                and then each client router has one iBGP session with each route reflector. '
+            text: '11'
+        header: |-
+            Consider the network whose topology is shown by the ASCII drawing below.
+
+            .. code:: console
+
+               R1------R2----R6
+               |       |
+               R3------R4----R5
+
+
+            All these routers belong to the same AS. If ``R2`` and ``R4`` are redundant route reflectors, how many iBGP sessions do you need to create inside this AS ?
+        success_message: Exact. There is one iBGP session between the two route reflectors
+            and each of the normal router needs to establish one iBGP session with
+            each of the two route reflectors.
+        type: multiple-choice
+        name: Number of iBGP sessions
+        limit: 4
 stored_submissions: 0
 submission_limit:
     amount: -1
