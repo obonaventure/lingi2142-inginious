@@ -4,7 +4,7 @@ context: |-
     These questions assume that you have read the following article :
 
     Jong Han Park et al, `BGP Route Reflection Revisited <http://irl.cs.ucla.edu/~j13park/rr-commag.pdf>`_, IEEE Communications Magazine, June 2012, ``http://irl.cs.ucla.edu/~j13park/rr-commag.pdf``
-environment: php
+environment: mcq
 evaluate: best
 groups: false
 limits:
