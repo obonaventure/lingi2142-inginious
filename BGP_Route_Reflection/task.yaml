@@ -8,13 +8,14 @@ environment: mcq
 evaluate: best
 groups: false
 limits:
-    memory: '100'
     time: '30'
+    memory: '100'
     output: '2'
 name: BGP Route Reflection
 network_grading: false
 problems:
     q1:
+        multiple: true
         choices:
         -   text: local-pref
         -   text: AS-Path
@@ -23,29 +24,25 @@ problems:
             valid: true
         -   valid: true
             text: ORIGINATOR_ID
+        type: multiple-choice
+        header: 'Which of the BGP attributes are *only* used when there are BGP Route
+            Reflectors inside a network ? '
         name: BGP Attributes
         limit: 4
         error_message: Please read again the section entitled `Basic Operation of
             Route Reflection`
-        header: 'Which of the BGP attributes are *only* used when there are BGP Route
-            Reflectors inside a network ? '
-        type: multiple-choice
-        multiple: true
     rr-ibgp:
-        type: multiple-choice
         choices:
-        -   valid: true
-            text: '5'
+        -   text: '5'
+            valid: true
+        -   text: '3'
+            feedback: Each router must maintain an iBGP session with a route reflector.
         -   feedback: Each router must maintain an iBGP session with a route reflector.
-            text: '3'
-        -   text: '4'
-            feedback: Each router must maintain an iBGP session with a route reflector.
-        -   text: '15'
-            feedback: Each router must maintain an iBGP session with a route reflector.
+            text: '4'
+        -   feedback: Each router must maintain an iBGP session with a route reflector.
+            text: '15'
         -   text: '36'
             feedback: Each router must maintain an iBGP session with a route reflector.
-        limit: 4
-        name: Number of iBGP sessions
         header: |
             Consider the network whose topology is shown by the ASCII drawing below.
 
@@ -57,6 +54,9 @@ problems:
 
 
             All these routers belong to the same AS. If one of them is a Route Reflector, how many iBGP sessions do you need to create ?
+        name: Number of iBGP sessions
+        limit: 4
+        type: multiple-choice
     rr-ibgp2:
         choices:
         -   valid: true
@@ -67,15 +67,15 @@ problems:
         -   feedback: 'The two route reflectors have one iBGP session between themselves
                 and then each client router has one iBGP session with each route reflector. '
             text: '10'
-        -   feedback: 'The two route reflectors have one iBGP session between themselves
-                and then each client router has one iBGP session with each route reflector. '
-            text: '7'
-        -   feedback: 'The two route reflectors have one iBGP session between themselves
-                and then each client router has one iBGP session with each route reflector. '
-            text: '15'
-        -   text: '11'
+        -   text: '7'
             feedback: 'The two route reflectors have one iBGP session between themselves
                 and then each client router has one iBGP session with each route reflector. '
+        -   text: '15'
+            feedback: 'The two route reflectors have one iBGP session between themselves
+                and then each client router has one iBGP session with each route reflector. '
+        -   feedback: 'The two route reflectors have one iBGP session between themselves
+                and then each client router has one iBGP session with each route reflector. '
+            text: '11'
         success_message: Exact. There is one iBGP session between the two route reflectors
             and each of the normal router needs to establish one iBGP session with
             each of the two route reflectors.
@@ -90,9 +90,9 @@ problems:
 
 
             All these routers belong to the same AS. If ``R2`` and ``R4`` are redundant route reflectors, how many iBGP sessions do you need to create inside this AS ?
+        limit: 4
         type: multiple-choice
         name: Number of iBGP sessions
-        limit: 4
     q2:
         choices:
         -   feedback: Remember that over an iBGP session, a BGP Route Reflectore only
@@ -104,22 +104,6 @@ problems:
                    R1's RIB
                     *p via RX AS2:AS4
                      p via RY AS3:AS4
-
-                   RR's RIB
-                    *p via RX AS2:AS4
-                     p via RY AS3:AS4
-
-                   R2's RIB
-                     p via RX AS2:AS4
-                    *p via RY AS3:AS4
-        -   feedback: Remember that over an iBGP session, a BGP Route Reflectore only
-                advertises its best BGP route. This implies that ``R1`` cannot learn
-                the ``Ry`` route
-            text: |
-                .. code::
-
-                   R1's RIB
-                    *p via RX AS2:AS4
 
                    RR's RIB
                     *p via RX AS2:AS4
@@ -141,9 +125,8 @@ problems:
                    R2's RIB
                     *p via RY AS3:AS4
 
-            feedback: '``R2`` will learn the route via ``RY`` through the route reflector.'
-        -   valid: true
-            text: |
+            feedback: '``R2`` will learn the route via ``RX`` through the route reflector.'
+        -   text: |
                 .. code::
 
                    R1's RIB
@@ -154,9 +137,12 @@ problems:
                      p via RY AS3:AS4
 
                    R2's RIB
-                    *p via RX AS3:AS4
+                    *p via RY AS3:AS4
                      p via RX AS2:AS4
-        -   text: |-
+            valid: true
+        -   feedback: '``RR`` will prefer the route via ``RX`` because it has the
+                lowest cost.'
+            text: |-
                 .. code::
 
                    R1's RIB
@@ -169,9 +155,9 @@ problems:
                    R2's RIB
                      p via RY AS3:AS4
                     *p via RX AS2:AS4
-            feedback: '``RR`` will prefer the route via ``RX`` because it has the
+        -   feedback: '``RR`` will prefer the route via ``RX`` because it has the
                 lowest cost.'
-        -   text: |-
+            text: |-
                 .. code::
 
                    R1's RIB
@@ -185,9 +171,6 @@ problems:
                    R2's RIB
                      p via RX AS3:AS4
                     *p via RX AS2:AS4
-        name: Basics of BGP Route Reflection
-        limit: 0
-        type: multiple-choice
         header: |-
             Consider the simple network shown in the ASCII figure below.
 
@@ -203,9 +186,11 @@ problems:
             - ``Rx`` advertises prefix `p` with `AS-Path:`AS2:AS4` to ``R1``
             - ``Ry`` advertises prefix `p` with `AS-Path:`AS3:AS4` to ``R2``
 
-            If link ``R1-RR`` has a cost of `1` and link ``RR-R2`` a cost of 2, what are the BGP routes known by these three routers ? (routes marked with * are the best ones)
-    q3:
+            If link ``R1-RR`` has a cost of `1` and link ``RR-R2`` a cost of 2, what are the BGP routes known by these three routers ? (routes marked with * are the best ones, we assume that BGP Nexthop self is not used)
         name: Basics of BGP Route Reflection
+        type: multiple-choice
+        limit: 4
+    q3:
         choices:
         -   text: |-
                 .. code::
@@ -238,9 +223,7 @@ problems:
 
                    Ry's RIB
                     *p via R2 AS1:AS3:AS4
-        -   feedback: 'The BGP Nexthop attribute is only modified when a BGP messages
-                leaves the AS. '
-            text: |-
+        -   text: |-
                 .. code::
 
                    R1's RIB
@@ -254,9 +237,11 @@ problems:
 
                    Ry's RIB
                     *p via R2 AS1:AS3:AS4
+            feedback: 'The BGP Nexthop attribute is only modified when a BGP messages
+                leaves the AS. '
         -   feedback: '``Ry`` does not know a route towards ``Rx``. The BGP Nexthop
-                attribute must be update when the BGP advertisement is sent over an
-                eBGP session.'
+                attribute must be updated when the BGP advertisement is sent over
+                an eBGP session.'
             text: |-
                 .. code::
 
@@ -271,8 +256,9 @@ problems:
 
                    Ry's RIB
                     *p via Rx AS1:AS3:AS4
+        limit: 4
         type: multiple-choice
-        limit: 0
+        name: Basics of BGP Route Reflection
         header: |-
             Consider the simple network shown in the ASCII drawing below.
 
@@ -285,7 +271,7 @@ problems:
 
             In this network, ``R1``, ``RR`` and ``R2`` belong to ``AS1``. ``R1`` and ``R2`` are clients of the Route Reflector ``RR``. ``Rx`` belongs to ``AS2`` and ``Ry`` to ``AS3``. ``Rx`` advertises prefix `p` with `AS-Path:`AS2:AS4` to ``R1``
 
-            If link ``R1-RR`` has a cost of `1` and link ``RR-R2`` a cost of `1`, what are the BGP routes known by these three routers ? (routes marked with * are the best ones)
+            If link ``R1-RR`` has a cost of `1` and link ``RR-R2`` a cost of `1`, what are the BGP routes known by these three routers ? (routes marked with * are the best ones, BGP Nexthop self is not used in this network)
 stored_submissions: 0
 submission_limit:
     amount: -1
