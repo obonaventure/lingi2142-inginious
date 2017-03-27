@@ -1,0 +1,58 @@
+accessible: true
+author: Olivier Bonaventure
+context: |
+    These questions assume that you have read the following article :
+
+    B. Quoitin, S. Uhlig, C. Pelsser, L. Swinnen and O. Bonaventure. `Interdomain traffic engineering with BGP <http://inl.info.ucl.ac.be/publications/interdomain-traffic-engineering-bgp>`_ IEEE Communications Magazine Internet Technology Series, 41(5):122-128, May 2003.
+    http://inl.info.ucl.ac.be/publications/interdomain-traffic-engineering-bgp
+environment: mcq
+evaluate: best
+groups: false
+limits:
+    memory: '100'
+    output: '2'
+    time: '30'
+name: BGP Traffic Engineering
+network_grading: false
+problems:
+    q1:
+        choices:
+        -   feedback: This attribute is usually inserted by the export filter.
+            text: Multi Exit Discriminator
+        -   text: local-pref
+            valid: true
+        -   text: Originator_Id
+            feedback: This attribute is used by Route Reflectors, it does not influence
+                the BGP decision process.
+        -   feedback: This attribute is included in all BGP messages. It is not inserted
+                by the import filter.
+            text: AS Path
+        -   feedback: This is not a BGP attribute
+            text: The IGP cost
+        multiple: true
+        name: BGP Attributes inserted in the import filterWhich of the BGP attributes
+            are typically inserted by import files to influence the selection of the
+            BGP routes inside an AS ?
+        type: multiple-choice
+        header: Which of the BGP attributes are typically inserted by *import* filters
+            to influence the selection of the BGP routes inside an AS ?
+    q2:
+        name: BGP Attributes inserted in the export filter
+        choices:
+        -   valid: true
+            text: The Multi Exit Discriminator
+        -   text: local-pref
+            feedback: This attribute is added by the import filter.
+        -   text: The CLUSTER_LIST
+            feedback: This attribute is only used by Route Reflectors. It does not
+                influence the BGP decision process.
+        -   text: The IGP cost
+            feedback: This is not a BGP attribute
+        type: multiple-choice
+        header: Which of the BGP attributes are typically inserted by *export* filters
+            to influence the selection of the BGP routes inside the remote AS ?
+stored_submissions: 0
+submission_limit:
+    amount: -1
+    period: -1
+weight: 1.0
