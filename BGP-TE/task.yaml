@@ -9,9 +9,9 @@ environment: mcq
 evaluate: best
 groups: false
 limits:
-    memory: '100'
     output: '2'
     time: '30'
+    memory: '100'
 name: BGP Traffic Engineering
 network_grading: false
 problems:
@@ -19,28 +19,29 @@ problems:
         choices:
         -   feedback: This attribute is usually inserted by the export filter.
             text: Multi Exit Discriminator
-        -   text: local-pref
-            valid: true
+        -   valid: true
+            text: local-pref
         -   text: Originator_Id
             feedback: This attribute is used by Route Reflectors, it does not influence
                 the BGP decision process.
         -   feedback: This attribute is included in all BGP messages. It is not inserted
                 by the import filter.
             text: AS Path
-        -   feedback: This is not a BGP attribute
-            text: The IGP cost
+        -   text: The IGP cost
+            feedback: This is not a BGP attribute
         multiple: true
+        header: Which of the BGP attributes are typically inserted by *import* filters
+            to influence the selection of the BGP routes inside an AS ?
+        type: multiple-choice
+        limit: 0
         name: BGP Attributes inserted in the import filterWhich of the BGP attributes
             are typically inserted by import files to influence the selection of the
             BGP routes inside an AS ?
-        type: multiple-choice
-        header: Which of the BGP attributes are typically inserted by *import* filters
-            to influence the selection of the BGP routes inside an AS ?
     q2:
-        name: BGP Attributes inserted in the export filter
+        type: multiple-choice
         choices:
-        -   valid: true
-            text: The Multi Exit Discriminator
+        -   text: The Multi Exit Discriminator
+            valid: true
         -   text: local-pref
             feedback: This attribute is added by the import filter.
         -   text: The CLUSTER_LIST
@@ -48,9 +49,35 @@ problems:
                 influence the BGP decision process.
         -   text: The IGP cost
             feedback: This is not a BGP attribute
-        type: multiple-choice
+        name: BGP Attributes inserted in the export filter
         header: Which of the BGP attributes are typically inserted by *export* filters
             to influence the selection of the BGP routes inside the remote AS ?
+        limit: 0
+    q3:
+        choices:
+        -   text: Setting the value of the local-pref attribute in the import filter
+                of eBGP sessions
+            valid: true
+        -   text: Setting the value of the local-pref attribute in the export filter
+                of eBGP sessions
+            feedback: The local-pref attribute is only set in the import filter, not
+                in the export filter
+        -   valid: true
+            text: Tune the IGP link weights
+        -   feedback: This is rarely done, but it's also possible in case an operator
+                wants to influence the BGP decision process after the AS-Path step.
+            text: Setting the value of the Multi-Exit Discriminator attribute in the
+                import filter of eBGP sessions
+            valid: true
+        -   text: Add several times your own AS in the AS-Path attribute in the export
+                filter
+            feedback: This is used to control the incoming traffic, not the outgoing
+                one.
+        multiple: true
+        name: Control of the outgoing traffic
+        header: Which of the following traffic engineering techniques can be used
+            to control the outgoing traffic of a stub network ?
+        type: multiple-choice
 stored_submissions: 0
 submission_limit:
     amount: -1
