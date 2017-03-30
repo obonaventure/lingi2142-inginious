@@ -73,11 +73,11 @@ problems:
                 one.
             text: Add several times your own AS in the AS-Path attribute in the export
                 filter
+        header: Which of the following traffic engineering techniques can be used
+            to control the *outgoing* traffic of a stub network ?
         type: multiple-choice
         limit: 0
         multiple: true
-        header: Which of the following traffic engineering techniques can be used
-            to control the *outgoing* traffic of a stub network ?
         name: Control of the outgoing traffic
     q4:
         choices:
@@ -97,9 +97,11 @@ problems:
             valid: true
         -   text: Advertising more specific prefixes
             valid: true
+        limit: 0
         header: Which of the following traffic engineering techniques can be used
             to control the *incoming* traffic of a stub network ?
         type: multiple-choice
+        multiple: true
         name: Control of the incoming traffic
     q5:
         choices:
@@ -134,6 +136,7 @@ problems:
 
             Google's AS number is 15169. Assuming that Google is connected to Sprint, which of the following sentences are valid for a route advertised by a stub that has two links to Sprint.
         name: BGP Communities for traffic engineering
+        limit: 4
         multiple: true
         type: multiple-choice
     q6:
@@ -161,6 +164,7 @@ problems:
             text: You use AS-Path prepending on the link with both ``AS3`` and ``AS2``
                 and advertise prefix `p` with AS-Path ``AS1:AS6``
         type: multiple-choice
+        limit: 4
         name: Internet traffic engineering exercise
         header: |-
             You are responsible for ``AS1``. Assume that the Internet topology is the followin g:
