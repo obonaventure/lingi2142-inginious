@@ -9,8 +9,8 @@ environment: mcq
 evaluate: best
 groups: false
 limits:
-    output: '2'
     time: '30'
+    output: '2'
     memory: '100'
 name: BGP Traffic Engineering
 network_grading: false
@@ -27,8 +27,8 @@ problems:
         -   feedback: This attribute is included in all BGP messages. It is not inserted
                 by the import filter.
             text: AS Path
-        -   text: The IGP cost
-            feedback: This is not a BGP attribute
+        -   feedback: This is not a BGP attribute
+            text: The IGP cost
         multiple: true
         header: Which of the BGP attributes are typically inserted by *import* filters
             to influence the selection of the BGP routes inside an AS ?
@@ -38,21 +38,21 @@ problems:
             are typically inserted by import files to influence the selection of the
             BGP routes inside an AS ?
     q2:
-        type: multiple-choice
         choices:
         -   text: The Multi Exit Discriminator
             valid: true
-        -   text: local-pref
-            feedback: This attribute is added by the import filter.
+        -   feedback: This attribute is added by the import filter.
+            text: local-pref
         -   text: The CLUSTER_LIST
             feedback: This attribute is only used by Route Reflectors. It does not
                 influence the BGP decision process.
-        -   text: The IGP cost
-            feedback: This is not a BGP attribute
+        -   feedback: This is not a BGP attribute
+            text: The IGP cost
+        type: multiple-choice
         name: BGP Attributes inserted in the export filter
+        limit: 0
         header: Which of the BGP attributes are typically inserted by *export* filters
             to influence the selection of the BGP routes inside the remote AS ?
-        limit: 0
     q3:
         choices:
         -   text: Setting the value of the local-pref attribute in the import filter
@@ -64,20 +64,115 @@ problems:
                 in the export filter
         -   valid: true
             text: Tune the IGP link weights
-        -   feedback: This is rarely done, but it's also possible in case an operator
+        -   valid: true
+            feedback: This is rarely done, but it's also possible in case an operator
                 wants to influence the BGP decision process after the AS-Path step.
             text: Setting the value of the Multi-Exit Discriminator attribute in the
                 import filter of eBGP sessions
-            valid: true
-        -   text: Add several times your own AS in the AS-Path attribute in the export
-                filter
-            feedback: This is used to control the incoming traffic, not the outgoing
+        -   feedback: This is used to control the incoming traffic, not the outgoing
                 one.
-        multiple: true
-        name: Control of the outgoing traffic
-        header: Which of the following traffic engineering techniques can be used
-            to control the outgoing traffic of a stub network ?
+            text: Add several times your own AS in the AS-Path attribute in the export
+                filter
         type: multiple-choice
+        limit: 0
+        multiple: true
+        header: Which of the following traffic engineering techniques can be used
+            to control the *outgoing* traffic of a stub network ?
+        name: Control of the outgoing traffic
+    q4:
+        choices:
+        -   feedback: This influences the outgoing traffic, not the incoming traffic.
+            text: Setting the value of the local-pref attribute in the import filter
+                of eBGP sessions
+        -   feedback: This influences the outgoing traffic, not the incoming traffic.
+            text: Tune the IGP link weights
+        -   valid: true
+            text: Add several times your own AS in the AS-Path attribute in the export
+                filter
+        -   text: Setting the value of the Multi-Exit Discriminator attribute in the
+                import filter of eBGP sessions
+            feedback: This controls the incoming traffic but is rarely used in practice.
+        -   text: Setting the value of the Multi-Exit Discriminator attribute in the
+                export filter of eBGP sessions
+            valid: true
+        -   text: Advertising more specific prefixes
+            valid: true
+        header: Which of the following traffic engineering techniques can be used
+            to control the *incoming* traffic of a stub network ?
+        type: multiple-choice
+        name: Control of the incoming traffic
+    q5:
+        choices:
+        -   text: To implement a backup service, the stub should attach BGP community
+                ``1239:70`` to the routes sent over the primary link and ``1239:90``
+                over the secondary link.
+            feedback: With BGP community ``1239:70``, the import policy on Sprint's
+                router would set a local-pref of 70 on the primary link.
+        -   valid: true
+            text: To implement a backup service, the stub should attach BGP community
+                ``1239:100`` to the routes sent over the primary link and ``1239:80``
+                over the secondary link.
+        -   text: If BGP community ``65000:15169`` is attached to a route, this route
+                will not be announced to Google
+        -   feedback: The route will be announced, but with a longer AS-Path.
+            text: If BGP community ``65001:15169`` is attached to a route, this route
+                will not be announced to Google.
+        -   valid: true
+            text: If BGP Communities ``65010:15169`` and ``65070:15169`` are attached
+                to a route, Sprint will not readvertise the route towards Google in
+                Asia and North America
+        -   text: If BGP Communities ``65010:15169`` and ``65070:15169`` are attached
+                to a route, Sprint will advertise this route towards Google in Asia
+                and North America but not elsewhere
+        -   text: If BGP Communities ``65010:15169`` and ``65070:15169`` are attached
+                to a route, Sprint will advertise this route towards Google in Europe
+                and North America but not elsewhere
+        header: |-
+            Several network operators have defined BGP Communities that can be used by their customers to control how the routes that they advertise will be ranked inside their own network.
+
+            As an example, consider the BGP policy that is specified by Sprint and is described in https://www.sprint.net/index.php?p=policy_bgp
+
+            Google's AS number is 15169. Assuming that Google is connected to Sprint, which of the following sentences are valid for a route advertised by a stub that has two links to Sprint.
+        name: BGP Communities for traffic engineering
+        multiple: true
+        type: multiple-choice
+    q6:
+        choices:
+        -   feedback: Your CEO is right in replacing you with another network engineer,
+                even if his political motivations are dubious.
+            text: You quit your job because this cannot be implemented in BGP.
+        -   feedback: This does not prevent ``AS6`` from receiving a route towards
+                your prefix `p`. Your users will not be ablt to reach the prefix advertised
+                by ``AS6``, but ``AS6`` will be able to reach you.
+            text: You configure the import filters of your routers to discard all
+                routes originated by ``AS6``.
+        -   feedback: 'This does not prevent ``AS6`` from receiving a route towards
+                your prefix `p`. '
+            text: You configure the import filters of your routers to attach a low
+                local-pref attribute on all routes originated by ``AS6``.
+        -   text: You use AS-Path prepending on the link with ``AS3`` and advertise
+                prefix `p` with AS-Path ``AS1:AS1:AS1:AS1``
+            feedback: '``AS6`` would then likely prefer the path via ``AS2``.'
+        -   text: You use AS-Path prepending on the link with both ``AS3`` and ``AS2``
+                and advertise prefix `p` with AS-Path ``AS1:AS1:AS1:AS1``
+        -   valid: true
+            feedback: This is strange, but it works because ``AS6`` will refuse to
+                use a path that includes its own AS number in the AS-Path.
+            text: You use AS-Path prepending on the link with both ``AS3`` and ``AS2``
+                and advertise prefix `p` with AS-Path ``AS1:AS6``
+        type: multiple-choice
+        name: Internet traffic engineering exercise
+        header: |-
+            You are responsible for ``AS1``. Assume that the Internet topology is the followin g:
+
+            .. code:: console
+
+
+               AS1 --- AS2 ---- AS4 ----- AS6
+                +       +                 +
+                +----- AS3 -- AS5 --- AS7 --+
+
+            For political reasons, the CEO of your company wants to ensure that ``AS6`` never has a route towards prefix `p` advertised by ``AS1``. How do you implement this political decision with BGP knowing that your two providers do not support any BGP communities.
 stored_submissions: 0
 submission_limit:
     amount: -1
