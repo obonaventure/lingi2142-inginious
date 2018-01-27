@@ -16,7 +16,7 @@ order: 6
 problems:
     q0:
         success_message: Correct
-        type: multiple-choice
+        type: multiple_choice
         choices:
         -   text: Ignore routes having an unreachable BGP nexthop
             valid: true
@@ -43,7 +43,7 @@ problems:
             text: Prefer routes having the closest next-hop
         header: In the list below, which rules of the BGP Decision process corresponds
             to `hot potato routing` ?
-        type: multiple-choice
+        type: multiple_choice
         success_message: Correct
         limit: 0
         multiple: true
@@ -94,7 +94,7 @@ problems:
             What are the next rules of the BGP decision process ?
         success_message: Correct
         limit: 0
-        type: multiple-choice
+        type: multiple_choice
         error_message: Read again the description of the BGP Decision process in this
             chapter of the first edition of the ebook.
     q0d:
@@ -105,7 +105,7 @@ problems:
         -   text: The local-preference
         -   text: The BGP Communities
         -   text: The BGP Nexthop
-        type: multiple-choice
+        type: multiple_choice
         name: Cold potato routing
         header: Cold potato routing relies on the utilisation of a specific BGP attribute.
             Which one ?
@@ -128,7 +128,7 @@ problems:
             iBGP session with every other BGP router in the domain [35]`
         limit: 0
         success_message: Correct
-        type: multiple-choice
+        type: multiple_choice
 stored_submissions: 0
 submission_limit:
     amount: 3

@@ -32,7 +32,7 @@ problems:
         multiple: true
         header: Which of the BGP attributes are typically inserted by *import* filters
             to influence the selection of the BGP routes inside an AS ?
-        type: multiple-choice
+        type: multiple_choice
         limit: 0
         name: BGP Attributes inserted in the import filterWhich of the BGP attributes
             are typically inserted by import files to influence the selection of the
@@ -48,7 +48,7 @@ problems:
                 influence the BGP decision process.
         -   feedback: This is not a BGP attribute
             text: The IGP cost
-        type: multiple-choice
+        type: multiple_choice
         name: BGP Attributes inserted in the export filter
         limit: 0
         header: Which of the BGP attributes are typically inserted by *export* filters
@@ -75,7 +75,7 @@ problems:
                 filter
         header: Which of the following traffic engineering techniques can be used
             to control the *outgoing* traffic of a stub network ?
-        type: multiple-choice
+        type: multiple_choice
         limit: 0
         multiple: true
         name: Control of the outgoing traffic
@@ -100,7 +100,7 @@ problems:
         limit: 0
         header: Which of the following traffic engineering techniques can be used
             to control the *incoming* traffic of a stub network ?
-        type: multiple-choice
+        type: multiple_choice
         multiple: true
         name: Control of the incoming traffic
     q5:
@@ -138,7 +138,7 @@ problems:
         name: BGP Communities for traffic engineering
         limit: 4
         multiple: true
-        type: multiple-choice
+        type: multiple_choice
     q6:
         choices:
         -   feedback: Your CEO is right in replacing you with another network engineer,
@@ -163,7 +163,7 @@ problems:
                 use a path that includes its own AS number in the AS-Path.
             text: You use AS-Path prepending on the link with both ``AS3`` and ``AS2``
                 and advertise prefix `p` with AS-Path ``AS1:AS6``
-        type: multiple-choice
+        type: multiple_choice
         limit: 4
         name: Internet traffic engineering exercise
         header: |-

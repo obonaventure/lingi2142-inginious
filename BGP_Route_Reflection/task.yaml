@@ -24,7 +24,7 @@ problems:
             valid: true
         -   valid: true
             text: ORIGINATOR_ID
-        type: multiple-choice
+        type: multiple_choice
         header: 'Which of the BGP attributes are *only* used when there are BGP Route
             Reflectors inside a network ? '
         name: BGP Attributes
@@ -56,7 +56,7 @@ problems:
             All these routers belong to the same AS. If one of them is a Route Reflector, how many iBGP sessions do you need to create ?
         name: Number of iBGP sessions
         limit: 4
-        type: multiple-choice
+        type: multiple_choice
     rr-ibgp2:
         choices:
         -   valid: true
@@ -91,7 +91,7 @@ problems:
 
             All these routers belong to the same AS. If ``R2`` and ``R4`` are redundant route reflectors, how many iBGP sessions do you need to create inside this AS ?
         limit: 4
-        type: multiple-choice
+        type: multiple_choice
         name: Number of iBGP sessions
     q2:
         choices:
@@ -188,7 +188,7 @@ problems:
 
             If link ``R1-RR`` has a cost of `1` and link ``RR-R2`` a cost of 2, what are the BGP routes known by these three routers ? (routes marked with * are the best ones, we assume that BGP Nexthop self is not used)
         name: Basics of BGP Route Reflection
-        type: multiple-choice
+        type: multiple_choice
         limit: 4
     q3:
         choices:
@@ -257,7 +257,7 @@ problems:
                    Ry's RIB
                     *p via Rx AS1:AS3:AS4
         limit: 4
-        type: multiple-choice
+        type: multiple_choice
         name: Basics of BGP Route Reflection
         header: |-
             Consider the simple network shown in the ASCII drawing below.
