@@ -1,0 +1,91 @@
+accessible: true
+author: Bonaventure Olivier
+categories: []
+contact_url: ''
+context: |-
+    As in the previous exercise, we consider that packets enter our router at a rate of 10 Mbps and that they must be forwarded over a 1 Mbps link. Our router has a buffer which can hold up to `p` packets. On this router, a packet remains inside the buffer until the transmission of the last bit of the packet on the downstream link.
+
+    For simplicity, we consider that all packets have a length of 10000 bits.
+
+    We consider different traffic patterns that arrive on our router. These patterns will be represented as a sequence of ``P`` and ``.``. Each character corresponds to a delay of one millisecond. A ``P`` indicates the transmission of a 10000 bits long packet while ``.`` indicates no transmission. Each pattern repeats itself forever.
+environment_id: python3-keras
+environment_parameters:
+    limits:
+        time: '30'
+        hard_time: ''
+        memory: '100'
+    run_cmd: ''
+environment_type: docker
+evaluate: best
+file: ''
+groups: false
+input_random: '0'
+name: Traffic pattern through a FIFO queue
+network_grading: false
+problems:
+    q1:
+        header: |-
+            Our router has a buffer which can hold up to three packets. This buffer is empty when it receives the following traffic pattern :
+
+             ``..PP..PP..PP..PP..PP..PP``
+
+            If the first packet is packet number 0, what is the number of the first packet that will be dropped by our router (-1 if packets are never dropped).
+        type: math
+        answers:
+        - '3'
+        name: Traffic pattern
+        hints: ''
+    q1b:
+        answers:
+        - '80'
+        header: Over a long period of time, what is the percentage of the incoming
+            packets that will be discarded by our router because its buffer is full
+            ?
+        name: Packet loss ratio
+        type: math
+        hints: Compute the transmission rate of the incoming flow
+    q2:
+        answers:
+        - '5'
+        hints: ''
+        name: Traffic pattern
+        type: math
+        header: |-
+            Our router has a buffer which can hold up to three packets. This buffer is empty when it receives the following traffic pattern :
+
+             ``....P....P....P....P``
+
+            If the first packet is packet number 0, what is the number of the first packet that will be dropped by our router (-1 if packets are never dropped).
+    q2b:
+        hints: ''
+        header: Over a long period of time, what is the percentage of the incoming
+            packets that will be discarded by our router because its buffer is full
+            ?
+        name: Packet loss ratio
+        answers:
+        - '50'
+        type: math
+    q3:
+        name: Traffic pattern
+        hints: ''
+        type: math
+        header: |-
+            Our router has a buffer which can hold up to three packets. This buffer is empty when it receives the following traffic pattern :
+
+             ``PPPPP.....PPPPP.....PPPPP``
+
+            If the first packet is packet number 0, what is the number of the first packet that will be dropped by our router (-1 if packets are never dropped).
+        answers:
+        - '3'
+    q3b:
+        hints: ''
+        name: Packet loss ratio
+        type: math
+        header: Over a long period of time, what is the percentage of the incoming
+            packets that will be discarded by our router because its buffer is full
+            ?
+stored_submissions: 0
+submission_limit:
+    amount: -1
+    period: -1
+weight: 1.0

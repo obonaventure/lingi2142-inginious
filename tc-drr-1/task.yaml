@@ -1,0 +1,89 @@
+accessible: true
+author: Bonaventure Olivier
+categories: []
+contact_url: ''
+context: |-
+    The deficit round-robin scheduler servers packets in the different queues according to a fixed cyclic schedule. For this exercise, we assume that the schedule is Q1, Q2, Q1, Q2, ...
+
+    The scheduler is attached to a 1 Mbps link. All incoming flows also arrive on 1 Mbps links.
+
+    The packets that arrive in queue `Q1` are represented using upper case letters. The packets that arrived in `Q2` are represented using lower case letters. A dot (``.``) in the incoming traffic pattern corresponds to a period of one millisecond without any incoming packet. For this exercise, we assume that *Q1* sends 2000 bits long packets while the other queues send 1000 bits long packets.
+environment_id: python3-keras
+environment_parameters:
+    limits:
+        time: '30'
+        hard_time: ''
+        memory: '100'
+    run_cmd: ''
+environment_type: docker
+evaluate: best
+file: ''
+groups: false
+input_random: '0'
+name: 'Deficit round-robin scheduling '
+network_grading: false
+problems:
+    q1:
+        header: |-
+            Queue `Q1` receives the following packets (``A`` is the first received packet) :
+
+             - ``JIHGFEDCBA``
+
+             Queue `Q2` receives the following packets (``a`` is the first received packet) :
+
+             - ``jihgfedcba``
+
+
+            Assuming the `Q1-Q2` schedule, what are the first ten packets sent on the output link ?
+        type: code_single_line
+        default: '..........'
+        name: Incoming traffic pattern
+    q2:
+        name: incoming traffic pattern
+        type: code_single_line
+        default: '..........'
+        header: |-
+            Queue `Q1` receives the following packets (``A`` is the first received packet) :
+
+             - ``JIHGFEDCBA``
+
+             Queue `Q2` receives the following packets (``a`` is the first received packet) :
+
+             - ``edcba.....``
+
+            Assuming the `Q1-Q2` schedule, what are the first ten packets sent on the output link ?
+    q3:
+        name: Incoming traffic pattern
+        default: '..........'
+        type: code_single_line
+        header: |-
+            Queue `Q1` receives the following packets (``A`` is the first received packet) :
+
+             - ``.E.D.C.B.A``
+
+             Queue `Q2` receives the following packets (``a`` is the first received packet) :
+
+             - ``..e..d..c..b..a``
+
+
+            Assuming the `Q1-Q2` schedule, what are the first ten packets sent on the output link ?
+    q4:
+        type: code_single_line
+        header: |-
+            Queue `Q1` receives the following packets (``A`` is the first received packet) :
+
+             - ``D..C..B..A``
+
+             Queue `Q2` receives the following packets (``a`` is the first received packet) :
+
+             - ``..e..d..c..b..a``
+
+
+            Assuming the `Q1-Q2` schedule, what are the first ten packets sent on the output link ?
+        name: Incoming traffic pattern
+        default: '..........'
+stored_submissions: 0
+submission_limit:
+    amount: -1
+    period: -1
+weight: 1.0

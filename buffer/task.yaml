@@ -1,0 +1,41 @@
+accessible: true
+author: Bonaventure Olivier
+categories: []
+contact_url: ''
+context: |-
+    Networks are composed of links that operate at different bandwidth. When a router needs to forward the packets received from a high-speed link to a lower speed one. In this case, the packets are queued in the buffer before being transmitted on the low speed link.
+
+    Let us consider two routers :
+     - an upstream router
+     - a downstream router
+
+    The link between the upstream and the downstream router operates at 10 Mbps. The downstream router forwards the packets received from the upstream router over a 1 Mbps link.
+environment_id: mcq
+environment_parameters: {}
+environment_type: mcq
+evaluate: best
+file: ''
+groups: false
+input_random: '0'
+name: Packet flow through a FIFO queue
+network_grading: false
+problems:
+    q:
+        header: |-
+            If the upstream router starts to send packets at 10 Mbps, how many seconds will last before the queue containing `q` bits becomes full ?
+
+            `Provider your answer as an equation t=f(q) where t is the delay until the queue becomes full and q the capacity of the buffer`
+        hints: ''
+        choices:
+        -   answer: \frac{q}{1000000}
+            feedback: Remeber that the downstream router sends packets at a rate of
+                1 Mbps
+        type: math
+        name: Buffer occupancy on the downstream router
+        answers:
+        - t=\frac{q}{9000000}
+stored_submissions: 0
+submission_limit:
+    amount: -1
+    period: -1
+weight: 1.0

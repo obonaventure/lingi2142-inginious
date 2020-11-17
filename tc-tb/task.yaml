@@ -1,0 +1,136 @@
+accessible: true
+author: Bonaventure Olivier
+categories: []
+contact_url: ''
+context: |+
+    A token bucket allows to precisely define the traffic contract of a packet flow. It is defined with two parameters :
+     - a rate `R` expressed in bits/sec
+     - a burst size `B` expressed in bits
+
+environment_id: mcq
+environment_parameters: {}
+environment_type: mcq
+evaluate: best
+file: ''
+groups: false
+input_random: '0'
+name: Token bucket
+network_grading: false
+problems:
+    q0b:
+        multiple: true
+        choices:
+        -   text: Packet a
+            valid: true
+        -   text: Packet b
+        -   text: Packet c
+            valid: true
+        -   text: Packet d
+        -   text: Packet e
+            valid: true
+        -   text: Packet f
+        -   text: Packet g
+            valid: true
+        limit: 0
+        name: Packets accepted by a token bucket
+        type: multiple_choice
+        header: |
+            Consider a token bucket attached to a 1 Mbps link and configured ith R=100 Kbps and B=1000 bits. The token bucket receives the following packets
+
+            ==============  =============
+            Packet at time  Length(bits)
+            --------------  -------------
+            `a` at 0.000 s   1000
+            `b` at 0.005 s   1000
+            `c` at 0.010 s   1000
+            `d` at 0.015 s   1000
+            `e` at 0.020 s   1000
+            `f` at 0.025 s   1000
+            `g` at 0.030 s   1000
+            `h` at 0.035 s   1000
+            ==============  =============
+
+            Which of these packets are accepted by the above token bucket ?
+    q1b:
+        choices:
+        -   text: Packet a
+            valid: true
+        -   valid: true
+            text: Packet b
+        -   valid: true
+            text: Packet c
+        -   text: Packet d
+            feedback: This packet is beyond the initial burst.
+        -   valid: true
+            text: Packet e
+        -   text: Packet f
+            feedback: After having affected the initial burst of three packets, the
+                token bucket will only accept packets at a rate of 100 kbps, i.e.
+                one packet every 10 msec.
+        -   text: Packet g
+        name: Packets accepted by a token bucket
+        multiple: true
+        type: multiple_choice
+        header: |
+            Consider a token bucket attached to a 1 Mbps link and configured with R=100 Kbps and B=3000 bits. The token bucket receives the following packets
+
+            ==============  =============
+            Packet at time  Length(bits)
+            --------------  -------------
+            `a` at 0.001 s   1000
+            `b` at 0.002 s   1000
+            `c` at 0.003 s   1000
+            `d` at 0.004 s   1000
+            `e` at 0.011 s   1000
+            `f` at 0.012 s   1000
+            `g` at 0.013 s   1000
+            `h` at 0.014 s   1000
+            ==============  =============
+
+            Which of these packets are accepted by the above token bucket ?
+        limit: 0
+    q2b:
+        choices:
+        -   valid: true
+            feedback: This packet is part of the initial burst
+            text: Packet a
+        -   text: Packet b
+            feedback: This packet is part of the initial burst
+            valid: true
+        -   feedback: When this packet arrives, the counter has a value that is lower
+                than the packet size.
+            text: Packet c
+        -   text: Packet d
+        -   text: Packet e
+        -   valid: true
+            text: Packet f
+        -   text: Packet g
+        -   valid: true
+            text: Packet h
+        limit: 0
+        multiple: true
+        name: Packets accepted by a token bucket
+        type: multiple_choice
+        header: |+
+            Consider a token bucket attached to a 1 Mbps link and configured with R=100 Kbps and B=3000 bits. The token bucket receives the following packets
+
+            ==============  =============
+            Packet at time  Length(bits)
+            --------------  -------------
+            `a` at 0.000 s   2000
+            `b` at 0.002 s   1000
+            `c` at 0.003 s   1000
+            `d` at 0.009 s   1000
+            `e` at 0.010 s   2000
+            `f` at 0.012 s   1000
+            `g` at 0.019 s   1000
+            `h` at 0.020 s   1000
+            ==============  =============
+
+            Which of these packets are accepted by the above token bucket ?
+
+stored_submissions: 0
+submission_limit:
+    amount: -1
+    period: -1
+weight: 1.0

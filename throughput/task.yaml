@@ -1,0 +1,61 @@
+accessible: true
+author: ''
+categories: []
+contact_url: ''
+context: |-
+    The throughput is an important metric for a network. The throughput of a physical interface is typically defined in bits/second. It corresponds to the maximum rate at which this link can transmit bits.
+
+    We can also define the throughput of a regular flow of packets.
+environment_id: mcq
+environment_parameters: {}
+environment_type: mcq
+evaluate: best
+file: ''
+groups: false
+input_random: '0'
+name: Throughput of a traffic flow
+network_grading: false
+problems:
+    thr:
+        type: multiple_choice
+        choices:
+        -   valid: true
+            text: The host sends one 1000 bits long packet every 100 msec
+        -   text: The host sends one 100 bits long packet every 10 msec
+            valid: true
+        -   valid: true
+            text: The host sends one 10000 bits packet every second
+        -   text: The host sends five 1000 bits packets, waits 500 msec and then sends
+                agin five packets, ...
+            valid: true
+        -   feedback: The throughput of this flow is 50 kbps
+            text: The host sends five 1000 bits packets, waits 100 msec and then sends
+                agin five packets, ...
+        -   valid: true
+            text: The host sends two consecutive 500 bits packets every 100 msec.
+        -   text: The host sends one 50 bits packet, waits 900 msec, then sends one
+                9000 bits packet, waits 100 msec and continues
+            feedback: The throughput of this flow is 9050 bps
+        -   text: The host sends a block of five 1000 bits packets, waits 400 msec,
+                send three 1000 bits packets, waits 700 msec and then sends four 1000
+                bits packets, waits 900 msec and then sends eight 1000 bits packets
+                and then restarts the same process
+            valid: true
+        -   feedback: This is lower than 10kbps
+            text: The host sends a block of three 1000 bits packets, waits 400 msec,
+                send five 1000 bits packets, waits 700 msec and then sends two 1000
+                bits packets, waits 900 msec and then sends six 1000 bits packets
+                and then restarts the same process
+        -   feedback: This is a throughput of 100 kbps
+            text: The host sends one hundred 1000 bits packets, waits for 5 seconds
+                and starts again.
+        name: Throughput for a flow of packets.
+        header: Here are a series of descriptions of the packets sent by a source
+            on a regular basis. Which of these descriptions correspond to a flow whose
+            throughput is 10.000 bits per second ?
+        multiple: true
+stored_submissions: 0
+submission_limit:
+    amount: -1
+    period: -1
+weight: 1.0

@@ -1,0 +1,68 @@
+accessible: true
+author: Olivier Bonaventure
+categories: []
+contact_url: ''
+context: ''
+environment_id: mcq
+environment_parameters: {}
+environment_type: mcq
+evaluate: best
+file: ''
+groups: false
+input_random: '0'
+name: Application types
+network_grading: false
+problems:
+    interactive:
+        header: Among the following applications, select the ones that you consider
+            as interactive
+        choices:
+        -   text: telnet
+            valid: true
+        -   text: netflix (video streaming)
+        -   valid: true
+            text: ssh
+        -   text: rsync
+        -   text: email
+        -   text: voice over ip
+            valid: true
+        multiple: true
+        type: multiple_choice
+        name: Interactive applications
+        limit: 0
+    elastic:
+        choices:
+        -   feedback: A voice over IP application can adjust the voice coding techniques
+                to the network conditions.
+            text: voice over ip
+        -   text: telnet
+            valid: true
+        -   feedback: Netflix can adjust the video quality to the network conditions.
+            text: netflix
+        -   valid: true
+            text: rsync
+        multiple: true
+        type: multiple_choice
+        name: Elastic applications
+        header: Among the following applications, select the ones that you consider
+            as elastic
+        limit: 0
+    tolerant:
+        choices:
+        -   valid: true
+            text: ssh
+        -   text: voice over ip
+        -   text: ftp
+            valid: true
+        -   text: interactive video game
+        name: Delay tolerant applications
+        limit: 0
+        multiple: true
+        type: multiple_choice
+        header: Among the following applications, select the ones that you consider
+            as delay tolerant
+stored_submissions: 0
+submission_limit:
+    amount: -1
+    period: -1
+weight: 1.0

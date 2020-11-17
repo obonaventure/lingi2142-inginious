@@ -1,0 +1,79 @@
+accessible: true
+author: ''
+categories: []
+contact_url: ''
+context: |-
+    Round-robin and deficit round-robin are examples of schedulers that allow to evenly distribute bandwidth among different incoming flows.
+
+    Consider a (d)RR scheduler with three queues: `Q1`, `Q2` and `Q3`. This scheduler is attached to a 1 Mbps output link and the flows that are classifed in the three queues also arrive at a rate of 1 Mbps.
+environment_id: mcq
+environment_parameters: {}
+environment_type: mcq
+evaluate: best
+file: ''
+groups: false
+input_random: '0'
+name: Round-robin and incoming flows
+network_grading: false
+problems:
+    q1:
+        header: |4-
+             The scheduler receives the following packet flows
+
+            - `Q1` receives traffic at a rate of 400 Kbps
+            - `Q2` receives traffic at a rate of 600 Kbps
+            - `Q3` receives traffic at a rate of 800 Kbps
+
+            Please provide your three answers using the `Add Answer` button. Each answer must be written as :math:`Qi=123` where :math:`Qi` is the identifier of the queue and 123 its bandwidth in kbps.
+        answers:
+        - Q2=333
+        - Q3=333
+        - Q1=333
+        type: math
+        name: RR
+        tolerance: 0.1
+        error_message: Look at the weights associated to the different queues.
+        hints: You need to reason about the operation of the scheduler.
+    q3:
+        hints: ''
+        answers:
+        - Q2=500
+        - Q1=500
+        header: |4-
+
+             The scheduler receives the following packet flows
+
+            - `Q1` receives traffic at a rate of 600 Kbps
+            - `Q2` receives traffic at a rate of 600 Kbps
+            - `Q3` does not receive any packet
+
+            Please provide your *two* answers using the `Add Answer` button. Each answer must be written as :math:`Qi=123` where :math:`Qi` is the identifier of the queue and 123 its bandwidth in kbps.
+        name: RR
+        type: math
+    q2:
+        header: |-
+            The scheduler receives the following packet flows
+
+            - `Q1` receives traffic at a rate of 100 Kbps
+            - `Q2` receives traffic at a rate of 300 Kbps
+            - `Q3` receives traffic at a rate of 900 Kbps
+
+            Please provide your three answers using the `Add Answer` button. Each answer must be written as :math:`Qi=123` where :math:`Qi` is the identifier of the queue and 123 its bandwidth in kbps.
+        answers:
+        - Q3=600
+        - Q1=100
+        - Q2=300
+        hints: ''
+        tolerance: 0.1
+        error_message: 'Try to first reason about how the scheduler behaves when it
+            receives packets in `Q1` at a very low rate and what happens for the other
+            queues. '
+        type: math
+        success_message: With round-robin the bandwidth that is not used by a queue
+            is shared among the other queues.
+        name: RR
+stored_submissions: 0
+submission_limit:
+    amount: -1
+    period: -1
+weight: 1.0

@@ -1,0 +1,98 @@
+accessible: true
+author: Bonaventure Olivier
+categories: []
+contact_url: ''
+context: |-
+    A token bucket allows to precisely define the traffic contract of a packet flow. It is defined with two parameters :
+     - a rate `R` expressed in bits/sec
+     - a burst size `B` expressed in bits
+
+    When used in shaping mode, the token bucket delays the packets that are considered invalid.
+environment_id: mcq
+environment_parameters: {}
+environment_type: mcq
+evaluate: best
+file: ''
+groups: false
+input_random: '0'
+name: Token bucket in shaping mode
+network_grading: false
+problems:
+    q0:
+        answers:
+        - b=0.01
+        - c=0.02
+        - e=0.04
+        - d=0.03
+        - a=0
+        name: Output of a shaper
+        header: |-
+            Consider a token bucket attached to a 1 Mbps link and configured ith R=100 Kbps and B=1000 bits. The token bucket receives the following packets
+
+            ==============  =============
+            Packet at time  Length(bits)
+            --------------  -------------
+            `a` at 0.000 s   1000
+            `b` at 0.005 s   1000
+            `c` at 0.010 s   1000
+            `d` at 0.015 s   1000
+            `e` at 0.020 s   1000
+            ==============  =============
+
+            For each of these five packets, indicate when they will be sent by the shaper. Use the `Add Answer` button to return five answers. If packet `a` is sent immediately, then return `a=0`. If packet `b` is sent at time=`0.004` then add an answer containing `b=0.004`, ...
+        type: math
+        hints: ''
+    q1:
+        header: |-
+            Consider a token bucket attached to a 1 Mbps link and configured with R=100 Kbps and B=3000 bits. The token bucket receives the following packets
+
+            ==============  =============
+            Packet at time  Length(bits)
+            --------------  -------------
+            `a` at 0.001 s   1000
+            `b` at 0.002 s   1000
+            `c` at 0.003 s   1000
+            `d` at 0.004 s   1000
+            `e` at 0.011 s   1000
+            ==============  =============
+
+            For each of these five packets, indicate when they will be sent by the shaper. Use the `Add Answer` button to return five answers. If packet `a` is sent immediately, then return `a=0.001`. If packet `b` is sent at time=`0.004` then add an answer containing `b=0.004`, ...
+        answers:
+        - b=0.002
+        - e=0.021
+        - d=0.011
+        - c=0.003
+        - a=0.001
+        type: math
+        name: Packets delayed by a token bucket
+        hints: ''
+    q2:
+        header: |-
+            Consider a token bucket attached to a 1 Mbps link and configured with R=100 Kbps and B=3000 bits. The token bucket receives the following packets
+
+            ==============  =============
+            Packet at time  Length(bits)
+            --------------  -------------
+            `a` at 0.000 s   2000
+            `b` at 0.002 s   1000
+            `c` at 0.003 s   1000
+            `d` at 0.009 s   1000
+            `e` at 0.010 s   2000
+            ==============  =============
+
+            For each of these five packets, indicate when they will be sent by the shaper. Use the `Add Answer` button to return five answers. If packet `a` is sent immediately, then return `a=0`. If packet `b` is sent at time=`0.004` then add an answer containing `b=0.004`, ...
+        answers:
+        - c=0.01
+        - a=0
+        - e=0.04
+        - d=0.02
+        - b=0.002
+        hints: 'For this exercise, try to execute the token bucket step by step for
+            each packet and update the `C` state variable at each step. '
+        type: math
+        name: Token bucket
+stored_submissions: 0
+submission_limit:
+    amount: -1
+    period: -1
+weight: 1.0

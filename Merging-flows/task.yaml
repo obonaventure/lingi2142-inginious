@@ -1,0 +1,61 @@
+accessible: true
+author: Bonaventure Olivier
+categories: []
+contact_url: ''
+context: |+
+    A router has three 1 Mbps interfaces :
+
+    - a downstream interface
+    - two upstream interfaces
+
+    The two upstream interfaces carry packets of fixed size (1000 bits). The traffic pattern that arrives on a given interface is represented as a sequence of characters, each letter represents a fixed size packet. A dot (``.``) indicates that no packet was received during one millisecond.
+
+
+environment_id: python3-keras
+environment_parameters:
+    limits:
+        time: '30'
+        hard_time: ''
+        memory: '100'
+    run_cmd: ''
+environment_type: docker
+evaluate: best
+file: ''
+groups: false
+input_random: '0'
+name: Two flows multiplexed through a queue
+network_grading: false
+problems:
+    q0:
+        name: Traffic pattern
+        default: ''
+        type: code_single_line
+        header: |
+            The first interface receives the following traffic pattern :
+
+            ``.j.i.h.g.f.e.d.c.b.a``  (packet ``a`` is the first received packet)
+
+            The second interface receives the following traffic pattern :
+            ``JIHGFEDCBA``
+
+            When the router receives two packets from the input links at the same time, it always places the packet received from the second link (represented by the capital letter) first in its buffer. What is the traffic pattern that we will observe on the output link ?
+    q:
+        type: code_single_line
+        header: |-
+            The first interface receives the following traffic pattern :
+            ``.j.i.h.g.f.e.d.c.b.a``  (packet ``a`` is the first received packet)
+
+            The second interface receives the following traffic pattern :
+            ``..JI....HGFE....DCBA``
+
+            When the router receives two packets from the input links at the same time, it always places the packet received from the second link (represented by the capital letter) first in its buffer. What is the traffic pattern that we will observe on the output link ?
+
+
+            Your answer should contain 20 letters.
+        name: Traffic pattern
+        default: ''
+stored_submissions: 0
+submission_limit:
+    amount: -1
+    period: -1
+weight: 1.0

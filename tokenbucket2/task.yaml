@@ -1,0 +1,57 @@
+accessible: true
+author: Olivier Bonaventure
+categories: []
+contact_url: ''
+context: 'A token bucket will accept a specific traffic pattern. '
+environment_id: python3-keras
+environment_parameters:
+    limits:
+        time: '30'
+        hard_time: ''
+        memory: '100'
+    run_cmd: ''
+environment_type: docker
+evaluate: best
+file: ''
+groups: false
+input_random: '0'
+name: Traffic pattern for token bucket
+network_grading: false
+problems:
+    q1:
+        header: |-
+            Consider a token bucket that uses the following parameters :
+             - Rate = 500 kbps
+             - burst = 1000 bits
+
+            The token bucket is connected to a 1 Mbps link and it receives a series of packets. Each packet has a size of 1000 bits and the delay between two successive packets on the input link is 1 msec. A dot (``.``) in the traffic pattern corresponds to a 1 msec period without any packet. Each letter identifies a packet.
+
+            If the token bucket receives the traffic pattern below, list the packets that will be accepted by the token bucket (assume that the rightmost packet is the first received packet):
+
+            ``vurqponmlkjihgfedcba``
+
+            If a packet has not been accepted then replace its character with a ``.`` in your answer. For example, if only every fifth character is accepted, then your answer should be ``..p....k....f....a``
+        type: code_single_line
+        default: vurqponmlkjihgfedcba
+        name: token bucket
+    q2:
+        name: token bucket
+        type: code_single_line
+        default: vurqponmlkjihgfedcba
+        header: |-
+            Consider a token bucket that uses the following parameters :
+             - Rate = 250 kbps
+             - burst = 2000 bits
+
+            The token bucket is connected to a 1 Mbps link and it receives a series of packets. Each packet has a size of 1000 bits and the delay between two successive packets on the input link is 1 msec. A dot (``.``) in the traffic pattern corresponds to a 1 msec period without any packet. Each letter identifies a packet.
+
+            If the token bucket receives the traffic pattern below, list the packets that will be accepted by the token bucket (assume that the rightmost packet is the first received packet):
+
+            ``vurqponmlkjihgfedcba``
+
+            If a packet has not been accepted then replace its character with a ``.`` in your answer. For example, if only every fifth character is accepted, then your answer should be ``....p....k....f....a``
+stored_submissions: 0
+submission_limit:
+    amount: -1
+    period: -1
+weight: 1.0

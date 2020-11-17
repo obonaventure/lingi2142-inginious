@@ -1,0 +1,71 @@
+#!/bin/python3
+
+# Olivier Bonaventure, 2020
+
+from inginious import input, feedback
+import re
+ 
+def removeSpaces(string):
+    return re.sub('[\s+]', '', string)
+
+
+#q0
+ans0 = "jJiIhHgGfFeEdDcCbBaA"
+def checkq0(str):
+
+    response = ""
+    grade = 0
+    if len(str) != len(ans0) :
+        feedback.set_problem_result("failed", "q0")
+        response += "Your answer does not contain the same number of characters as the ones in the question. Remember that you should replace the packets that are not accepted by the token bucket with a dot and leave the existing dots\n"
+        feedback.set_problem_feedback(response, "q0")
+        return 0
+
+    if str == ans0 :
+        feedback.set_problem_result("success", "q0")
+        response += "Correct\n"
+        feedback.set_problem_feedback(response, "q0")
+        return 100
+
+    if str == "JjIiHhGgFfEeDdCcBbAa":
+        feedback.set_problem_result("failed", "q0")
+        response += "Your answer is incorrect. Remember that when two packets arrive at the same time, the packets represented with a capital letter is always placed first in the queue. Since the queue operates in FIFO, it must be sent before the other packet arrived at the same time.\n"
+        feedback.set_problem_feedback(response, "q0")
+        return 0
+    
+    return grade
+
+#q
+ans1 = "FeEdcDbCBaA"
+
+def checkq(str):
+
+    response = ""
+    grade = 0
+    if len(str) != len(ans1) :
+        feedback.set_problem_result("failed", "q")
+        response += "Your answer does not contain the same number of characters as the ones in the question. Remember that you should replace the packets that are not accepted by the token bucket with a dot and leave the existing dots\n"
+        feedback.set_problem_feedback(response, "q")
+        return 0
+
+    if str == ans1:
+        feedback.set_problem_result("success", "q")
+        response += "Correct\n"
+        feedback.set_problem_feedback(response, "q")
+        return 100
+
+    return grade
+
+
+grade=0
+grade += checkq(removeSpaces(input.get_input("q")))/2
+
+
+
+feedback.set_grade(grade)
+
+if grade == 100:
+    feedback.set_global_result("success")
+else:
+    feedback.set_global_result("failed")
+# end

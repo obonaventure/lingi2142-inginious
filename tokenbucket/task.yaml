@@ -1,0 +1,30 @@
+accessible: true
+author: Olivier Bonaventure
+categories: []
+contact_url: ''
+context: ''
+environment_id: mcq
+environment_parameters: {}
+environment_type: mcq
+evaluate: best
+file: ''
+groups: false
+input_random: '0'
+name: Token bucket
+network_grading: false
+problems:
+    size:
+        answers:
+        - R\times t+B
+        type: math
+        header: |
+            What is the maximum number of bits accepted by a token bucket of rate R and burst size B during t seconds ?
+
+            Consider in your answer that R is expressed in bits/second and B in bits.
+        hints: ''
+        name: Maximum number of bits
+stored_submissions: 0
+submission_limit:
+    amount: -1
+    period: -1
+weight: 1.0

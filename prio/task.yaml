@@ -1,0 +1,107 @@
+accessible: true
+author: Bonaventure Olivier
+categories: []
+contact_url: ''
+context: |-
+    Consider a router that receives packets from three incoming flows. Each flow enters the router over a 1 Mbps interface and all packets have a fixed size of 1000 bits. These flows are placed in three queues :
+
+      - a high priority queue
+      - a medium priority queue
+      - a low priority queue
+
+    The packets that correspond to the flow that is mapped in the high priority queue are represented using capital letters. The packets that correspond to the medium priority are represented using lower case letters and the numbers represent the packets from the low priority flow. A dot (``.``) indicates that no packet was sent during one millisecond.
+environment_id: python3-keras
+environment_parameters:
+    limits:
+        time: '30'
+        hard_time: ''
+        memory: '100'
+    run_cmd: ''
+environment_type: docker
+evaluate: best
+file: ''
+groups: false
+input_random: '0'
+name: Priority queue
+network_grading: false
+problems:
+    q1:
+        header: |-
+            The high priority flow receives the following packets (the first received packet one is ``A``) :
+
+             - ``JIHGFEDCBA``
+
+            The medium priority flow receives the following packets :
+
+             - ``e..dc...ba``
+
+            The low priority flow receives the following packets :
+
+            - ``..432...10``
+
+            Provide the first ten packets on the output link.
+        type: code_single_line
+        name: Incoming traffic
+        default: '..........'
+    q2:
+        header: |-
+            The high priority flow receives the following packets (the first received packet one is ``A``) :
+
+             - ``EDCBA.....``
+
+            The medium priority flow receives the following packets :
+
+             - ``.....edcba``
+
+            The low priority flow receives the following packets :
+
+            - ``.....43210``
+
+            Provide the first ten packets on the output link.
+        default: '..........'
+        optional: 'on'
+        type: code_single_line
+        name: incoming traffic
+    q3:
+        header: |-
+            The high priority flow receives the following packets (the first received packet one is ``A``) :
+
+             - ``.E.D.C.B.A``
+
+            The medium priority flow receives the following packets :
+
+             - ``.....edcba``
+
+            The low priority flow receives the following packets :
+
+            - ``.....43210``
+
+            Provide the first ten packets on the output link.
+        default: '..........'
+        name: incoming traffic
+        optional: 'on'
+        type: code_single_line
+    q4:
+        type: code_single_line
+        optional: 'on'
+        header: |-
+            The high priority flow receives the following packets (the first received packet one is ``A``) :
+
+             - ``..EDCBA...``
+
+            The medium priority flow receives the following packets :
+
+             - ``......dcba``
+
+            The low priority flow receives the following packets :
+
+            - ``.....43210``
+
+            Provide the first ten packets on the output link.
+        name: incoming traffic
+        default: '..........'
+stored_submissions: 0
+submission_limit:
+    amount: -1
+    period: -1
+weight: 1.0

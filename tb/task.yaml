@@ -1,0 +1,29 @@
+accessible: false
+author: Olivier Bonaventure
+categories: []
+contact_url: ''
+context: |-
+    There is plenty of literature on traffic control techniques. The article below provides a good survey
+
+    M. EL-GENDY, A. BOSE, K. SHIN,  IEEE, Evolution of the internet QoS and support for soft real-time applications - Proceedings of the IEEE, Vol 91, N 7, July 2003
+    https://ieeexplore.ieee.org/document/1215688
+environment_id: python3-keras
+environment_parameters:
+    limits:
+        time: '30'
+        hard_time: ''
+        memory: '100'
+    run_cmd: ''
+environment_type: docker
+evaluate: best
+file: ''
+groups: false
+input_random: '0'
+name: Bibliography
+network_grading: false
+problems: {}
+stored_submissions: 0
+submission_limit:
+    amount: -1
+    period: -1
+weight: 1.0

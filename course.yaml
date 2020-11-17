@@ -1,6 +1,8 @@
-name: '[LINGI2142] - QCM'
+name: '[LINGI2142] - Computer networks : configuration and management'
 admins:
 - obonaventure
+- pirauxma
+- twirtgen
 tutors: []
 groups_student_choice: false
 use_classrooms: true
@@ -9,5 +11,44 @@ allow_unregister: true
 registration: true
 registration_password: null
 registration_ac: null
-registration_ac_list:
-- ''
+registration_ac_list: []
+toc:
+-   id: tasks-list
+    rank: 0
+    tasks_list: {}
+    title: Liste des exercices
+-   id: bgp
+    rank: 1
+    tasks_list:
+        BGP-TE: 2
+        BGP_Route_Reflection: 1
+        task1: 0
+    title: BGP
+-   id: traffic_control
+    rank: 2
+    tasks_list:
+        Classification: 2
+        Merging-flows: 10
+        Traffic_pattern: 9
+        app-types: 1
+        buffer: 8
+        prio: 11
+        tb: 0
+        tc-drr-1: 15
+        tc-rr-1: 12
+        tc-rr-2: 13
+        tc-rr-3: 14
+        tc-tb: 4
+        tc-tb-shaper: 6
+        tc-wrr: 16
+        test: 17
+        throughput: 3
+        tokenbucket: 5
+        tokenbucket2: 7
+    title: Traffic control
+description: Questions for the advanced networking course
+allow_preview: true
+is_lti: false
+lti_url: ''
+lti_keys: {}
+lti_send_back_grade: false
