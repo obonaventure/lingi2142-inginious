@@ -45,7 +45,7 @@ for l in log:
         pushes.add(path)
     elif status == "R":
         _, old_path, new_path = l.split()
-        dirnames.add(os.path.dirname(path))
+        dirnames.add(os.path.dirname(new_path))
         renames.add((old_path, new_path))
     elif status == "D":
         _, path = l.split()
