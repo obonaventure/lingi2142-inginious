@@ -1,0 +1,74 @@
+accessible: true
+author: Olivier Bonaventure
+categories: []
+contact_url: ''
+context: |-
+    Consider the network shown below.
+
+    .. image:: https://inginious.info.ucl.ac.be/course/lingi2142-QCM/mpls-pre-frr/mpls-pre-frr.png
+
+    ``R1`` sends packets with label ``L7`` while ``R2`` sends packets with label ``L4``
+
+    The LFIB of the different routers are configured as follows.
+
+    Router ``R3``
+
+    ===== ======= =======================
+    Label Nexthop Operation
+    ----- ------- -----------------------
+    L7    R5      SWAP(L6)
+    L4    R5      SWAP(L9)
+    ===== ======= =======================
+
+
+    Router ``R5``
+
+    ===== ======= =======================
+    Label Nexthop Operation
+    ----- ------- -----------------------
+    L9    R4      POP
+    L6    R7      POP
+    ===== ======= =======================
+
+    Router ``R6``
+
+    ===== ======= =======================
+    Label Nexthop Operation
+    ----- ------- -----------------------
+    L9    R8      SWAP(L1)
+    ===== ======= =======================
+
+    Router ``R8``
+
+    ===== ======= =======================
+    Label Nexthop Operation
+    ----- ------- -----------------------
+    L1    R5      POP
+    ===== ======= =======================
+environment_id: python3-keras
+environment_parameters:
+    limits:
+        hard_time: ''
+        time: '30'
+        memory: '100'
+    run_cmd: ''
+environment_type: docker
+evaluate: best
+file: ''
+groups: false
+input_random: '0'
+name: Changing one line in the LFIB
+network_grading: false
+problems:
+    q:
+        name: Failure of a link
+        language: ''
+        header: In this network, the network operator claims that if the link ``R3-R5``
+            fails, the failure can be quickly overcome. Explain his solution.
+        type: code
+        default: ''
+stored_submissions: 0
+submission_limit:
+    amount: -1
+    period: -1
+weight: 1.0

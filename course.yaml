@@ -46,6 +46,27 @@ toc:
         tokenbucket: 5
         tokenbucket2: 7
     title: Traffic control
+-   id: quality_of_service
+    rank: 3
+    tasks_list:
+        qos-ef-be: 2
+        qos-fairness: 0
+        qos-router-no-prio: 1
+    title: Quality of Service
+-   id: mpls
+    rank: 4
+    tasks_list:
+        mpls-large-lsp: 7
+        mpls-ldp-1: 6
+        mpls-lsp-r1: 3
+        mpls-lsp-r4: 4
+        mpls-lsp-r7: 5
+        mpls-lsr-if: 9
+        mpls-packet: 2
+        mpls-pre-frr: 8
+        mpls-router: 1
+        mpls-router-2: 0
+    title: MPLS
 description: Questions for the advanced networking course
 allow_preview: true
 is_lti: false

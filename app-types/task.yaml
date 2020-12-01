@@ -14,53 +14,59 @@ name: Application types
 network_grading: false
 problems:
     interactive:
-        header: Among the following applications, select the ones that you consider
-            as interactive
+        multiple: true
+        type: multiple_choice
         choices:
         -   text: telnet
             valid: true
         -   text: netflix (video streaming)
-        -   valid: true
-            text: ssh
+        -   text: ssh
+            valid: true
         -   text: rsync
         -   text: email
-        -   text: voice over ip
-            valid: true
-        multiple: true
-        type: multiple_choice
-        name: Interactive applications
+        -   valid: true
+            text: voice over ip
+        header: Among the following applications, select the ones that you consider
+            as interactive
         limit: 0
+        name: Interactive applications
     elastic:
         choices:
-        -   feedback: A voice over IP application can adjust the voice coding techniques
-                to the network conditions.
-            text: voice over ip
-        -   text: telnet
-            valid: true
+        -   text: voice over ip
+            feedback: A basic voice over IP application does not adjust the packet
+                rate to the network conditions. An advanced one such as skype can
+                adapt.
+        -   valid: true
+            text: telnet
         -   feedback: Netflix can adjust the video quality to the network conditions.
+            valid: true
             text: netflix
         -   valid: true
             text: rsync
-        multiple: true
-        type: multiple_choice
-        name: Elastic applications
         header: Among the following applications, select the ones that you consider
             as elastic
         limit: 0
+        name: Elastic applications
+        multiple: true
+        type: multiple_choice
     tolerant:
         choices:
         -   valid: true
+            feedback: ssh tolerates higher delays, but it will be less interactive
+                with very long delays.
             text: ssh
         -   text: voice over ip
-        -   text: ftp
-            valid: true
+            feedback: 'Above 200 msec of end-to-end delay, endusers complain about
+                the loss of interactivity with a voice over ip application '
+        -   valid: true
+            text: file transfer
         -   text: interactive video game
-        name: Delay tolerant applications
-        limit: 0
-        multiple: true
         type: multiple_choice
+        name: Delay tolerant applications
+        multiple: true
         header: Among the following applications, select the ones that you consider
             as delay tolerant
+        limit: 0
 stored_submissions: 0
 submission_limit:
     amount: -1
