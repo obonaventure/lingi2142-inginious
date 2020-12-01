@@ -1,0 +1,52 @@
+accessible: false
+author: Bonaventure Olivier
+categories: []
+contact_url: ''
+context: |-
+    Your are now responsible for an enterprise network. This network is composed of old routers that support four queues per output link and a dWRR scheduler. The enterprise needs to deploy telephones that use Voice over IP and the telephony vendor recommends that you prioritise the voice traffic in your network.
+
+    Your enterprise is composed of two sites that are interconnected with a 40 Mbps link. There are 100 employees on each site and a telephone call is assumed to consume 100 kbps. How do you configure the different queues and the schedulers of the routers attached to the wide area link ?
+
+    The classifier of the router is configured as follows :
+    - queue1 receives the telephony packets
+    - queue2 receives the other data packets
+    - queue3 receives the BGP and OSPF packets
+    - queue4 does not receive packets
+environment_id: python3-keras
+environment_parameters:
+    limits:
+        hard_time: ''
+        memory: '100'
+        time: '30'
+    run_cmd: ''
+environment_type: docker
+evaluate: best
+file: ''
+groups: false
+input_random: '0'
+name: A router without priority queues
+network_grading: false
+problems:
+    q1:
+        header: What is the weight (as an integer) that you configure for this queue
+            ?
+        name: Weight of queue1
+        default: '0'
+        type: code_single_line
+    q2:
+        name: Weight of queue2
+        type: code_single_line
+        default: '0'
+        header: What is the weight (as an integer) that you configure for this queue
+            ?
+    q3:
+        default: '0'
+        header: What is the weight (as an integer) that you configure for this queue
+            ?
+        type: code_single_line
+        name: Weight of queue3
+stored_submissions: 0
+submission_limit:
+    amount: -1
+    period: -1
+weight: 1.0

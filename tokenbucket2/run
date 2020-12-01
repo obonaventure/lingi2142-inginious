@@ -10,7 +10,7 @@ def removeSpaces(string):
 
 
 #q1
-ans1 = ".s.q.o.m.k.i.g.e.c.a"
+ans1 = ".u.q.o.m.k.i.g.e.c.a"
 
 def checkq1(str):
 
@@ -33,7 +33,7 @@ def checkq1(str):
 
 #q2
 #
-ans2 = "...q...m...i...e...a"
+ans2 = "...q...m...i...e..ba"
 def checkq2(str):
 
     response = ""

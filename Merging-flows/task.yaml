@@ -14,9 +14,9 @@ context: |+
 environment_id: python3-keras
 environment_parameters:
     limits:
-        time: '30'
-        hard_time: ''
         memory: '100'
+        hard_time: ''
+        time: '30'
     run_cmd: ''
 environment_type: docker
 evaluate: best
@@ -28,8 +28,7 @@ network_grading: false
 problems:
     q0:
         name: Traffic pattern
-        default: ''
-        type: code_single_line
+        default: '............'
         header: |
             The first interface receives the following traffic pattern :
 
@@ -38,9 +37,11 @@ problems:
             The second interface receives the following traffic pattern :
             ``JIHGFEDCBA``
 
-            When the router receives two packets from the input links at the same time, it always places the packet received from the second link (represented by the capital letter) first in its buffer. What is the traffic pattern that we will observe on the output link ?
-    q:
+            When the router receives two packets from the input links at the same time, it always places the packet received from the second link (represented by the capital letter) first in its buffer. What are the first 12 packets that we will observe on the output link ?
         type: code_single_line
+    q:
+        name: Traffic pattern
+        default: '............'
         header: |-
             The first interface receives the following traffic pattern :
             ``.j.i.h.g.f.e.d.c.b.a``  (packet ``a`` is the first received packet)
@@ -51,9 +52,8 @@ problems:
             When the router receives two packets from the input links at the same time, it always places the packet received from the second link (represented by the capital letter) first in its buffer. What is the traffic pattern that we will observe on the output link ?
 
 
-            Your answer should contain 20 letters.
-        name: Traffic pattern
-        default: ''
+            What are the first 12 packets that we will observe on the output link ?
+        type: code_single_line
 stored_submissions: 0
 submission_limit:
     amount: -1

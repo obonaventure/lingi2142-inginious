@@ -1,0 +1,48 @@
+#!/bin/python3
+# Deficit round ro bin
+# Olivier Bonaventure, 2020
+
+from inginious import input, feedback
+import re
+ 
+def removeSpaces(string):
+    return re.sub('[\s+]', '', string)
+
+def packet_error(str,correct):
+    if (str[-1] != correct[-1]):
+        return "The first packet is not the right one"
+    n=1
+    while n<len(correct) and str.endswith(correct[len(correct)-n:]) :
+      n=n+1
+    if n==2 :  
+        return "Only the first packet of your answer is the right one."
+    else:
+        return "Only the first {} packets of your answer are the right ones.".format(n-1)  
+
+
+def toint(str,q):
+    v=-1
+    try:
+        v=int(str)
+        feedback.set_problem_result("success", q)
+        feedback.set_problem_feedback("", q)
+    except ValueError as ex:
+        feedback.set_problem_result("failed", q)
+        feedback.set_problem_feedback("This is not an integer",q)
+    return v
+
+grade=0
+q1=toint(input.get_input("q1"),"q1")
+q2=toint(input.get_input("q2"),"q2")
+q3=toint(input.get_input("q3"),"q3")
+sq=q1+q2+q3
+
+if sq==0 :
+    feedback.set_global_result("failed")
+    feedback.set_grade(0)
+else:
+ #   if( 40 * q1/sq >= 5) and (40 * q1/sq <= 20 ):
+    feedback.set_global_feedback("Thanks for your answer. It will be discussed during the next lesson. It has not been automatically evaluated.",append=True)
+    feedback.set_global_result("success")
+    feedback.set_grade(100)
+

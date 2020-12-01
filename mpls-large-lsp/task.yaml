@@ -1,0 +1,108 @@
+accessible: true
+author: Olivier Bonaventure
+categories: []
+contact_url: ''
+context: |+
+    In some MPLS networks, large LSPs carry smaller LSPs. This improves the scalability of the network by reducing the number of LSPs that need to be handled by the core LSRs.
+
+    Consider the network below where the large LSP (shown with a magenta line) carries three small LSPs (shown with dotted red, blue and green lines).
+
+    .. image:: https://inginious.info.ucl.ac.be/course/lingi2142-QCM/mpls-large-lsp/mpls-large-lsp.png
+
+
+    Here is the LFIB of LSR ``R2``
+
+    ===== ======= =============================
+    Label Nexthop Operation
+    ----- ------- -----------------------------
+    L7    RX      POP
+    L8    RY      POP
+    L2    RZ      POP
+    ===== ======= =============================
+
+    Here is the LFIB of LSR ``R3``
+
+    ===== ======= =============================
+    Label Nexthop Operation
+    ----- ------- -----------------------------
+    L5    R2      SWAP(L8)
+    L2    R2      SWAP(L7)
+    L7    R2      SWAP(L2)
+    ===== ======= =============================
+
+    Here is the LFIB of LSR ``R1``
+
+    ===== ======= =============================
+    Label Nexthop Operation
+    ----- ------- -----------------------------
+    L5    R3      POP
+    ===== ======= =============================
+
+    Here is the LFIB of LSR ``R6``
+
+    ===== ======= =============================
+    Label Nexthop Operation
+    ----- ------- -----------------------------
+    L9    R1      SWAP(L5)
+    ===== ======= =============================
+
+
+    Here is the LFIB of LSR ``R7``
+
+    ===== ======= =============================
+    Label Nexthop Operation
+    ----- ------- -----------------------------
+    L9    R6      SWAP(L5);PUSH(L9)
+    L8    R6      SWAP(L2);PUSH(L9)
+    L7    R6      SWAP(L7);PUSH(L9)
+    ===== ======= =============================
+
+    Here is the LFIB of LSR ``R8``
+
+    ===== ======= =============================
+    Label Nexthop Operation
+    ----- ------- -----------------------------
+    L11   R7      SWAP(L9)
+    L3    R7      SWAP(L7)
+    L8    R7      SWAP(L8)
+    ===== ======= =============================
+
+environment_id: mcq
+environment_parameters: {}
+environment_type: mcq
+evaluate: best
+file: ''
+groups: false
+input_random: '0'
+name: Stacked LSPs
+network_grading: false
+problems:
+    px:
+        hints: ''
+        name: Label to reach px
+        answers:
+        - L8
+        type: math
+        header: What is the label that router ``R4`` needs to use to reach ``px``
+            ?
+    py:
+        answers:
+        - L11
+        hints: ''
+        name: Label to reach py
+        header: What is the label that router ``R4`` needs to use to reach ``py``
+            ?
+        type: math
+    pz:
+        name: Label to reach pz
+        type: math
+        answers:
+        - L3
+        hints: ''
+        header: What is the label that router ``R4`` needs to use to reach ``px``
+            ?
+stored_submissions: 0
+submission_limit:
+    amount: -1
+    period: -1
+weight: 1.0
