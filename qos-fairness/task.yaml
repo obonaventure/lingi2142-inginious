@@ -1,0 +1,39 @@
+accessible: true
+author: Bonaventure Olivier
+categories: []
+contact_url: ''
+context: |+
+    An enterprise network is attached to the Internet using a 100 Mbps line. The enterprise networks contains several servers using different operating systems. Some use TCP Vegas while others use TCP CUBIC and TCP BBR. Each server is managed by a different department and it is impossible to change these congestion control schemes.
+
+
+
+environment_id: python3-keras
+environment_parameters:
+    limits:
+        time: '30'
+        hard_time: ''
+        memory: '100'
+    run_cmd: ''
+environment_type: docker
+evaluate: best
+file: ''
+groups: false
+input_random: '0'
+name: Improving TCP fairness
+network_grading: false
+problems:
+    q1:
+        header: |-
+            During a management meeting, on department head complained about the low performance of his fileserver. He did an experiment with a colleague who works from home. This colleague tried to download a large file from the server of department ``A`` and another file of similar size from department ``B``. The ``A`` server provides a throughput of more than 65 Mbps while server ``B`` could only reach 30 Mbps.
+
+            ``B``'s department head is unhappy with this result and claims that the network was tuned to better serve department ``A`` than department ``B``. Describe the techniques that you would use to solve problem in one paragraph.
+        type: code
+        name: Fairness
+        default: ''
+        language: ''
+sectionid: quality_of_service
+stored_submissions: 0
+submission_limit:
+    amount: -1
+    period: -1
+weight: 1.0

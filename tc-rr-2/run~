@@ -1,0 +1,130 @@
+#!/bin/python3
+
+# Olivier Bonaventure, 2020
+
+from inginious import input, feedback
+import re
+ 
+def removeSpaces(string):
+    return re.sub('[\s+]', '', string)
+
+def packet_error(str,correct):
+    if (str[-1] != correct[-1]):
+        return "The first packet is not the right one"
+    n=1
+    while n<len(correct) and str.endswith(correct[len(correct)-n:]) :
+      n=n+1
+    if n==2 :  
+        return "Only the first packet of your answer is the right one."
+    else:
+        return "Only the first {} packets of your answer are the right ones.".format(n-1)  
+
+#q1
+ans1 = "D2cC1bB0aA"
+def checkq1(str):
+
+    response = ""
+    grade = 0
+    if len(str) != len(ans1):
+        feedback.set_problem_result("failed", "q1")
+        response += "Your answer does not contain the first ten packets.\n"
+        feedback.set_problem_feedback(response, "q1")
+        return 0
+
+    if str == ans1:
+        feedback.set_problem_result("success", "q1")
+        response += "Correct. The scheduler allocates one third of the output link badnwidth to each queue.\n"
+        feedback.set_problem_feedback(response, "q1")
+        return 100
+    else :
+        feedback.set_problem_result("failed", "q1")
+        feedback.set_problem_feedback(packet_error(str,ans1),"q1")
+        return 0
+
+#q2
+ans2 = "4E3D2C1B0A"
+
+def checkq2(str):
+
+    response = ""
+    grade = 0
+    if len(str) != len(ans2) :
+        feedback.set_problem_result("failed", "q2")
+        response += "Your answer does not contain the first ten packets.\n"
+        feedback.set_problem_feedback(response, "q2")
+        return 0
+
+    if str == ans2:
+        feedback.set_problem_result("success", "q2")
+        response += "Correct. Initially, only the first two queues are active. Each of these two queues is served at half the bandwidth of the output link. \n"
+        feedback.set_problem_feedback(response, "q2")
+        return 100
+    else :
+        feedback.set_problem_result("failed", "q2")
+        feedback.set_problem_feedback(packet_error(str,ans2),"q2")
+        return 0
+
+
+
+#q3
+ans3 = "D2cC1bB0aA"
+def checkq3(str):
+
+    response = ""
+    grade = 0
+    if len(str) != len(ans3) :
+        feedback.set_problem_result("failed", "q3")
+        response += "Your answer does not contain the first ten packets.\n"
+        feedback.set_problem_feedback(response, "q3")
+        return 0
+
+    if str == ans3:
+        feedback.set_problem_result("success", "q3")
+        response += "Correct. Note that this is exactly the same pattern as for the first question.\n"
+        feedback.set_problem_feedback(response, "q3")
+        return 100
+    else :
+        feedback.set_problem_result("failed", "q3")
+        feedback.set_problem_feedback(packet_error(str,ans3),"q3")
+        return 0
+
+
+#q4
+ans4 = "D2cC1bB0aA"
+
+def checkq4(str):
+
+    response = ""
+    grade = 0
+    if len(str) != len(ans4) :
+        feedback.set_problem_result("failed", "q4")
+        response += "Your answer does not contain the first ten packets.\n"
+        feedback.set_problem_feedback(response, "q4")
+        return 0
+
+    if str == ans4:
+        feedback.set_problem_result("success", "q4")
+        response += "Correct. Note that this is exactly the same pattern as for the first question.\n"
+        feedback.set_problem_feedback(response, "q4")
+        return 100
+    else :
+        feedback.set_problem_result("failed", "q4")
+        feedback.set_problem_feedback(packet_error(str,ans4),"q4")
+        return 0
+
+
+
+
+grade=0
+grade += checkq1(removeSpaces(input.get_input("q1")))/4
+grade += checkq2(removeSpaces(input.get_input("q2")))/4
+grade += checkq3(removeSpaces(input.get_input("q3")))/4
+grade += checkq4(removeSpaces(input.get_input("q4")))/4
+
+feedback.set_grade(grade)
+
+if grade == 100:
+    feedback.set_global_result("success")
+else:
+    feedback.set_global_result("failed")
+# end

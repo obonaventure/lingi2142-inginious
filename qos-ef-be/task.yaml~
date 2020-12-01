@@ -1,0 +1,32 @@
+accessible: true
+author: Bonaventure Olivier
+categories: []
+contact_url: ''
+context: You need to support these two services on one router. Which of the designs
+    below are valid ?
+environment_id: mcq
+environment_parameters: {}
+environment_type: mcq
+evaluate: best
+file: ''
+groups: false
+input_random: '0'
+name: Expedited Forwarding and Best Effort
+network_grading: false
+problems:
+    q1:
+        limit: 0
+        choices:
+        -   feedback: Placing the EF flow in a shaper will cause additional delays.
+            text: This is a valid design
+        -   valid: true
+            text: This is NOT a valid design
+        header: |
+            .. image:: https://inginious.info.ucl.ac.be/course/lingi2142-QCM/qos-ef-be/Slide11.png
+        name: Proposed design
+        type: multiple_choice
+stored_submissions: 0
+submission_limit:
+    amount: -1
+    period: -1
+weight: 1.0

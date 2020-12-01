@@ -1,0 +1,49 @@
+accessible: true
+author: Olivier Bonaventure
+categories: []
+contact_url: ''
+context: |-
+    The packet trace below (source https://packetlife.net/captures/category/mpls/) contains packets with MPLS encasulation. The questions below concern the first packet of the flow.
+
+    https://inginious.info.ucl.ac.be/course/lingi2142-QCM/mpls-packet/MPLS_trace.pcap
+environment_id: mcq
+environment_parameters: {}
+environment_type: mcq
+evaluate: best
+file: ''
+groups: false
+input_random: '0'
+name: An MPLS packet
+network_grading: false
+problems:
+    label:
+        type: math
+        hints: Use wireshark or similar tools to explore this packet trace.
+        answers:
+        - '18'
+        name: What is the value of the label at the top of the stack ?
+        header: ''
+    depth:
+        header: How many labels are included in the MPLS stack of the first packet
+            ?
+        name: Depth of the MPLS stack
+        hints: ''
+        type: math
+        answers:
+        - '1'
+    ttl:
+        type: math
+        name: What is the TTL of the top label ?
+        success_message: Note that the packet was collected at the router that performs
+            the encapsulation because the TTL of the IPv4 header is the same as the
+            TTL of the MPLS header.
+        header: ''
+        hints: ''
+        answers:
+        - '254'
+sectionid: mpls
+stored_submissions: 0
+submission_limit:
+    amount: -1
+    period: -1
+weight: 1.0

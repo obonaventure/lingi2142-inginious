@@ -10,7 +10,7 @@ def removeSpaces(string):
 
 
 #q1
-ans1 = ".u.q.o.m.k.i.g.e.c.a"
+ans1 = ".s.q.o.m.k.i.g.e.c.a"
 
 def checkq1(str):
 
@@ -23,7 +23,7 @@ def checkq1(str):
         feedback.set_problem_feedback(response, "q1")
         return 0
 
-    if str == ans1:
+    if str == ans2:
         feedback.set_problem_result("success", "q1")
         response += "Correct\n"
         feedback.set_problem_feedback(response, "q1")
@@ -33,7 +33,7 @@ def checkq1(str):
 
 #q2
 #
-ans2 = "...q...m...i...e..ba"
+ans2 = "...q...m...i...e...a"
 def checkq2(str):
 
     response = ""
@@ -55,8 +55,8 @@ def checkq2(str):
     return grade
 
 grade=0
-grade += checkq1(removeSpaces(input.get_input("q1")))/2
-grade += checkq2(removeSpaces(input.get_input("q2")))/2
+grade += checkq2(removeSpaces(inginious.input.get_input("q2")))/2
+grade += checkq2(removeSpaces(inginious.input.get_input("q2")))/2
 
 
 feedback.set_grade(grade)

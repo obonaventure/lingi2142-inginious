@@ -10,7 +10,7 @@ def removeSpaces(string):
 
 
 #q0
-ans0 = "jJiIhHgGfFeEdDcCbBaA"
+ans0 = "fFeEdDcCbBaA"
 def checkq0(str):
 
     response = ""

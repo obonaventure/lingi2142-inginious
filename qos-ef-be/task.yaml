@@ -1,0 +1,131 @@
+accessible: true
+author: Bonaventure Olivier
+categories: []
+contact_url: ''
+context: You need to support these two services on one router. Which of the designs
+    below are valid ?
+environment_id: mcq
+environment_parameters: {}
+environment_type: mcq
+evaluate: best
+file: ''
+groups: false
+input_random: '0'
+name: Expedited Forwarding and Best Effort
+network_grading: false
+problems:
+    q1:
+        choices:
+        -   feedback: Placing the EF flow in a shaper will cause additional delays.
+            text: This is a valid design
+        -   valid: true
+            text: This is NOT a valid design
+        limit: 0
+        header: |
+            .. image:: https://inginious.info.ucl.ac.be/course/lingi2142-QCM/qos-ef-be/Slide11.png
+        name: Proposed design
+        type: multiple_choice
+    q2:
+        choices:
+        -   text: This is a valid design
+            valid: true
+        -   text: This is NOT a valid design
+        limit: 0
+        type: multiple_choice
+        name: Proposed design
+        header: |
+            .. image:: https://inginious.info.ucl.ac.be/course/lingi2142-QCM/qos-ef-be/Slide12.png
+    q3:
+        choices:
+        -   text: This is a valid design
+            feedback: Placing the BE flows in the policer would imply that best effort
+                packets would be dropped when there is no EF traffic.
+        -   valid: true
+            text: This is NOT a valid design
+        type: multiple_choice
+        limit: 0
+        header: |
+            .. image:: https://inginious.info.ucl.ac.be/course/lingi2142-QCM/qos-ef-be/Slide13.png
+        name: Proposed design
+    q4:
+        limit: 0
+        choices:
+        -   text: This is a valid design
+        -   feedback: Shaping the BE flows would imply that best effort traffic would
+                not be able to consumme the bandwidth when there is no EF traffic
+            valid: true
+            text: This is NOT a valid design
+        header: |
+            .. image:: https://inginious.info.ucl.ac.be/course/lingi2142-QCM/qos-ef-be/Slide14.png
+        name: Proposed design
+        type: multiple_choice
+    q5:
+        name: Proposed design
+        choices:
+        -   valid: true
+            text: This is a valid design
+            feedback: Note that this is not an optimal design from a delay viewpoint
+                since EF packets might be delayed by best effort packets.
+        -   feedback: If you use dWRR, there is no need to police the EF traffic.
+                Note that this is not an optimal design from a delay viewpoint since
+                EF packets might be delayed by best effort packets.
+            valid: true
+            text: This is NOT a valid design
+        limit: 0
+        header: |
+            .. image:: https://inginious.info.ucl.ac.be/course/lingi2142-QCM/qos-ef-be/Slide15.png
+        type: multiple_choice
+    q6:
+        choices:
+        -   text: This is a valid design
+            valid: true
+            feedback: But there is a risk of starvation of the best effort traffic
+                since there is no limit to the EF traffic.
+        -   text: This is NOT a valid design
+        header: |
+            .. image:: https://inginious.info.ucl.ac.be/course/lingi2142-QCM/qos-ef-be/Slide16.png
+        type: multiple_choice
+        name: Proposed design
+        limit: 0
+    q7:
+        header: |
+            .. image:: https://inginious.info.ucl.ac.be/course/lingi2142-QCM/qos-ef-be/Slide17.png
+        choices:
+        -   valid: true
+            feedback: In this case, the policer restricts the amount of EF traffic
+                that enters the queues and the large weight ensures that EF will receive
+                a low delay through the queue.
+            text: This is a valid design
+        -   text: This is NOT a valid design
+        type: multiple_choice
+        name: Proposed design
+        limit: 0
+    q8:
+        header: |
+            .. image:: https://inginious.info.ucl.ac.be/course/lingi2142-QCM/qos-ef-be/Slide18.png
+        choices:
+        -   text: This is a valid design
+            feedback: 'This design provides a lower delay to EF than to BE since EF
+                has a weight that is twice as large. '
+            valid: true
+        -   text: This is NOT a valid design
+        name: Proposed design
+        type: multiple_choice
+        limit: 0
+    q9:
+        choices:
+        -   text: This is a valid design
+            feedback: This design provides 10% of the output bandwidth to EF but not
+                a low delay in contrast with the previous one
+        -   valid: true
+            text: This is NOT a valid design
+        limit: 0
+        name: Proposed design
+        header: |
+            .. image:: https://inginious.info.ucl.ac.be/course/lingi2142-QCM/qos-ef-be/Slide19.png
+        type: multiple_choice
+stored_submissions: 0
+submission_limit:
+    amount: -1
+    period: -1
+weight: 1.0

@@ -1,0 +1,62 @@
+accessible: true
+author: Olivier Bonaventure
+categories: []
+contact_url: ''
+context: |-
+    Consider the network below where the numbers represent the IGP weights of each link (1 if there is no number next to a link)
+
+    .. image:: https://inginious.info.ucl.ac.be/course/lingi2142-QCM/mpls-lsp-r7/network.png
+
+    What are the LSPs towards router *R7*
+
+    In your answer, return the path as RX-RY-RZ. If there are several equal cost paths, separate them with a comma (,). For example RX-RY-RZ,RX-RA-RB-RZ
+environment_id: python3-keras
+environment_parameters:
+    limits:
+        hard_time: ''
+        time: '30'
+        memory: '100'
+    run_cmd: ''
+environment_type: docker
+evaluate: best
+file: ''
+groups: false
+input_random: '0'
+name: MPLS LSPs created by LDP
+network_grading: false
+problems:
+    r2:
+        name: LSPs from R2
+        header: What are the paths the LSP(s) established by LDP from R2 ?
+        default: ''
+        type: code_single_line
+    r3:
+        name: LSPs from R3
+        header: What are the path the LSP(s) established by LDP from R3 ?
+        default: ''
+        type: code_single_line
+    r4:
+        name: LSPs from R4
+        default: ''
+        type: code_single_line
+        header: What are the paths the LSP(s) established by LDP from R4 ?
+    r5:
+        header: What are the paths the LSP(s) established by LDP from R5 ?
+        name: LSPs from R5
+        type: code_single_line
+        default: ''
+    r6:
+        name: LSPs fromR6
+        header: What are the paths the LSP(s) established by LDP from R6 ?
+        default: ''
+        type: code_single_line
+    r1:
+        name: LSPs from R1
+        type: code_single_line
+        header: What are the paths the LSP(s) established by LDP from R1 ?
+        default: ''
+stored_submissions: 0
+submission_limit:
+    amount: -1
+    period: -1
+weight: 1.0

@@ -1,0 +1,41 @@
+accessible: true
+author: Olivier Bonaventure
+categories: []
+contact_url: ''
+context: |-
+    MPLS supports two different types of label spaces :
+     - per LSR label space where a single label space is shared among all interfaces
+     - per interface label space where each interface can use the entire label space
+environment_id: python3-keras
+environment_parameters:
+    limits:
+        memory: '100'
+        hard_time: ''
+        time: '30'
+    run_cmd: ''
+environment_type: docker
+evaluate: best
+file: ''
+groups: false
+input_random: '0'
+name: Per LSR and per-interface label spaces
+network_grading: false
+problems:
+    q1:
+        language: ''
+        header: What are the advantages of each approach ?
+        default: ''
+        type: code
+        name: Advantages
+    q2:
+        type: code
+        header: What are the drawbacks of each approach ?
+        language: ''
+        name: Drawbacks
+        default: ''
+sectionid: mpls
+stored_submissions: 0
+submission_limit:
+    amount: -1
+    period: -1
+weight: 1.0

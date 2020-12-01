@@ -1,0 +1,42 @@
+accessible: true
+author: Olivier Bonaventure
+categories: []
+contact_url: ''
+context: |-
+    In a network that contains both MPLS LSRs and traditionnal routers, the LSRs use LDP to create LSPs.
+
+    .. image:: https://inginious.info.ucl.ac.be/course/lingi2142-QCM/mpls-ldp-1/mpls-net-ldp.png
+
+    Consider the FEC that corresponds to prefix ``p``. What are the paths of the LSPs that the different LSRs will create ?
+environment_id: python3-keras
+environment_parameters:
+    limits:
+        memory: '100'
+        hard_time: ''
+        time: '30'
+    run_cmd: ''
+environment_type: docker
+evaluate: best
+file: ''
+groups: false
+input_random: '0'
+name: LSPs created by LDP
+network_grading: false
+problems:
+    r1:
+        type: code_single_line
+        header: What are the path(s) of the LSP(s) used by router ``R1`` to reach
+            prefix ``p`` ?
+        default: ''
+        name: LSPs from R1
+    r6:
+        name: LSPs from R6
+        type: code_single_line
+        header: What are the path(s) of the LSP(s) used by router ``R6`` to reach
+            prefix ``p`` ?
+        default: ''
+stored_submissions: 0
+submission_limit:
+    amount: -1
+    period: -1
+weight: 1.0

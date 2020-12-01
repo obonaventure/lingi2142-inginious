@@ -1,0 +1,78 @@
+accessible: true
+author: Olivier Bonaventure
+categories: []
+contact_url: ''
+context: |-
+    Consider the *R7* MPLS router shown in the figure below.
+
+    .. image:: https://inginious.info.ucl.ac.be/course/lingi2142-QCM/mpls-router-2/mpls-router.png
+
+    This router uses per interface label space and has the following LFIB
+
+    ============= ====== =============  =====================
+    Incoming intf Label  Outgoing intf  Operation
+    ------------- ------ -------------  ---------------------
+    East          L1     North-E        SWAP( L7)
+    East          L2     East           POP
+    East          L3     North-E        POP
+    East          L4     South-E        PUSH (L2)
+    West          L5     South-East     SWAP (L9); PUSH (L3)
+    West          L3     North-E        SWAP( L7)
+    West          L4     East           PUSH (L1)
+    West          L2     East           POP
+    West          L6     South-E        PUSH (L2)
+    West          L1     South-East     SWAP (L9); PUSH (L1)
+    ============= ====== =============  =====================
+
+
+    For this exercice, the MPLS stack of a packet is represented as as sequence of labels separated by a colon. For example, ``LX:LY:LZ`` is an MPLS stack containing three labels. ``LZ`` is the top label, ``LY`` the second one and ``LX`` the bottom one.
+environment_id: python3-keras
+environment_parameters:
+    limits:
+        hard_time: ''
+        time: '30'
+        memory: '100'
+    run_cmd: ''
+environment_type: docker
+evaluate: best
+file: ''
+groups: false
+input_random: '0'
+name: Packet handling by MPLS router
+network_grading: false
+problems:
+    q1:
+        type: code_single_line
+        name: Packet received
+        default: ''
+        header: Router *R7* receives a packet with label ``L3:L4`` from *R2*. What
+            is the label stack of the outgoing packet that it sends ?
+    q2:
+        default: ''
+        name: Packet received
+        type: code_single_line
+        header: Router *R7* receives a packet with label ``L7:L4`` from *R4*. What
+            is the label stack of the outgoing packet that it sends ?
+    q3:
+        header: Router *R7* receives a packet with label ``L1`` from *R4*. What is
+            the label stack of the outgoing packet that it sends ?
+        default: ''
+        type: code_single_line
+        name: Packet received
+    q4:
+        header: Router *R7* receives a packet with label ``L0:L5:L3`` from *R2*. What
+            is the label stack of the outgoing packet that it sends ?
+        type: code_single_line
+        default: ''
+        name: Packet received
+    q5:
+        type: code_single_line
+        name: Packet received
+        header: Router *R7* receives a packet with label ``L1:L5`` from *R4*. What
+            is the label stack of the outgoing packet that it sends ?
+        default: ''
+stored_submissions: 0
+submission_limit:
+    amount: -1
+    period: -1
+weight: 1.0

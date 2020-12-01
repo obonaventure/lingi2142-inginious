@@ -1,0 +1,179 @@
+accessible: true
+author: Olivier Bonaventure
+categories: []
+contact_url: ''
+context: |-
+    Packet classification is one of the key elements of a routers to implement traffic control techniques.
+
+    As an example, let us consider an IPv6 packet such as the following one :
+
+    .. image:: https://inginious.info.ucl.ac.be/course/lingi2142-QCM/Classification/pkt.png
+
+
+    .. raw:: html
+
+       <script defer>
+       bodyHeight = 0;
+       function postSize() {
+           if (document.body.scrollHeight != bodyHeight) {
+               bodyHeight = document.body.scrollHeight;
+               window.parent.postMessage({height: bodyHeight}, "*");
+           }
+       };
+       var target = document.querySelector('body');
+
+       var observer = new MutationObserver(postSize);
+
+       var config = { attributes: true, subtree: true }
+
+       observer.observe(target, config);
+       $(document).ready(function(){
+           document.querySelector('#content').style.minHeight = '';
+           setTimeout(postSize, 0);
+       });
+       </script>
+environment_id: mcq
+environment_parameters: {}
+environment_type: mcq
+evaluate: best
+file: ''
+groups: false
+input_random: '0'
+name: Packet classification
+network_grading: false
+problems:
+    l2:
+        type: multiple_choice
+        choices:
+        -   valid: true
+            text: Ethernet source address
+        -   text: Ethernet destination address
+            valid: true
+        -   valid: true
+            text: Ethernet type
+            feedback: This is part of the L2 header
+        -   feedback: This field is part of the network layer.
+            text: Internet protocol version
+        -   text: Traffic class
+            feedback: This field is part of the network layer.
+        -   text: Next header
+            feedback: This field is part of the network layer.
+        -   text: Hop Limit
+            feedback: This field is part of the network layer.
+        -   feedback: This field is part of the network layer.
+            text: Source IP address
+        -   feedback: This field is part of the network layer.
+            text: Destination IP address
+        -   feedback: This field is part of the transport layer.
+            text: Source port
+        -   text: Destination port
+            feedback: This field is part of the transport layer.
+        -   text: TLS record type
+            feedback: This field is part of the application layer.
+        limit: 0
+        name: L2 classification
+        header: What are the fields of the packet that you can match if you want to
+            implement Layer-2 classification ?
+        multiple: true
+    l3:
+        name: L3 classification
+	multiple: true
+	limit: 0
+        choices:
+        -   feedback: This field is part of the L2 header.
+            text: Ethernet source address
+        -   text: Ethernet destination address
+            feedback: This field is part of the L2 header.
+        -   feedback: This field is part of the L2 header.
+            text: Ethernet type
+        -   valid: true
+            text: Internet protocol version
+        -   text: Traffic class
+            valid: true
+        -   text: Next header
+            valid: true
+        -   text: Hop Limit
+            valid: true
+        -   valid: true
+            text: Source IP address
+        -   valid: true
+            text: Destination IP address
+        -   feedback: This field is part of the transport layer.
+            text: Source port
+        -   text: Destination port
+            feedback: This field is part of the transport layer.
+        -   text: TLS record type
+            feedback: This field is part of the application layer.
+        header: What are the fields of the packet that you can match if you want to implement Layer-3 classification ?
+        multiple: true
+        limit: 0
+        type: multiple_choice
+    l4:
+        header: What are the fields of the packet that you can match if you want to implement Layer-3 classification ?
+        choices:
+        -   feedback: This is part of the L2 header
+            text: Ethernet source address
+        -   text: Ethernet destination address
+            feedback: This is part of the L2 header
+        -   feedback: This is part of the L2 header
+            text: Ethernet type
+            feedback: This is part of the L2 header
+        -   feedback: This field is part of the network layer.
+            text: Internet protocol version
+        -   text: Traffic class
+            feedback: This field is part of the network layer.
+        -   text: Next header
+            feedback: This field is part of the network layer.
+        -   text: Hop Limit
+            feedback: This field is part of the network layer.
+        -   feedback: This field is part of the network layer.
+            text: Source IP address
+        -   feedback: This field is part of the network layer.
+            text: Destination IP address
+        -   valid: true
+            text: Source port
+        -   text: Destination port
+            valid: true
+        -   text: TLS record type
+            feedback: This field is part of the application layer.
+        limit: 0
+	name: L4 classification		
+        type: multiple_choice
+        limit: 0
+    l7:
+        limit: 0
+        header: What are the fields of the packet that you can match if you want to implement application-level (or layer 7) classification ?
+        choices:
+        -   feedback: This is part of the L2 header
+            text: Ethernet source address
+        -   text: Ethernet destination address
+            feedback: This is part of the L2 header
+        -   feedback: This is part of the L2 header
+            text: Ethernet type
+        -   feedback: This field is part of the network layer.
+            text: Internet protocol version
+        -   text: Traffic class
+            feedback: This field is part of the network layer.
+        -   text: Next header
+            feedback: This field is part of the network layer.
+        -   text: Hop Limit
+            feedback: This field is part of the network layer.
+        -   feedback: This field is part of the network layer.
+            text: Source IP address
+        -   feedback: This field is part of the network layer.
+            text: Destination IP address
+        -   feedback: This field is part of the transport layer.
+            text: Source port
+        -   text: Destination port
+            feedback: This field is part of the transport layer.
+        -   text: TLS record type
+            feedback: This field is part of the application layer.
+	    valid: true
+        limit: 0
+        name: L4 classification		
+        type: multiple_choice
+stored_submissions: 0
+submission_limit:
+    amount: -1
+    period: -1
+weight: 1.0
